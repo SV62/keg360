@@ -1,299 +1,520 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>KEG Challenge 360</title>
+<title>KEG Challenge 360 V3</title>
 <style>
-body{font-family:Arial,sans-serif;background:#0b1220;color:#fff;margin:0;padding:20px}
-.hero,.card,.table{background:#131c31;border-radius:18px;padding:20px;margin-bottom:20px}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}
-.value{font-size:32px;font-weight:bold}
-.podium{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:15px;margin-bottom:20px}
-.p{background:#131c31;padding:20px;border-radius:18px;text-align:center}
-table{width:100%;border-collapse:collapse}
-td,th{padding:10px;border-bottom:1px solid #2a3553;text-align:left}
-.bar{background:#25314f;height:10px;border-radius:20px}
-.fill{background:#4ade80;height:10px;border-radius:20px}
-@media(max-width:700px){.podium{grid-template-columns:1fr;}}
+body{margin:0;background:#f4f7fb;font-family:Arial,sans-serif;color:#1f2937}
+.hero{background:linear-gradient(135deg,#22c55e,#16a34a);color:white;padding:28px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:15px}
+.stat{background:white;border-radius:16px;padding:15px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.big{font-size:28px;font-weight:700}
+.section{padding:15px}
+.podium,.movers{background:white;border-radius:16px;padding:15px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.cards{padding:15px;display:grid;gap:12px}
+.card{background:white;border-radius:16px;padding:15px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.row{display:flex;justify-content:space-between}
+.rank{font-weight:700;color:#16a34a}
+.metrics{font-size:14px;color:#555;margin:10px 0}
+.badge{margin:8px 0;font-weight:700}
+.bar{height:10px;background:#e5e7eb;border-radius:20px;overflow:hidden}
+.fill{height:100%;background:#22c55e}
+h3{margin:10px 0}
 </style>
 </head>
 <body>
 <div class="hero">
 <h1>🚴 KEG Challenge 360</h1>
-<p>Current Standings</p>
+<p>June Edition • Live Standings</p>
 </div>
 
 <div class="stats">
-<div class="card"><div>Total Riders</div><div class="value">42</div></div>
-<div class="card"><div>360 Club</div><div class="value">3</div></div>
-<div class="card"><div>Total Distance</div><div class="value">4456.0</div></div>
+<div class="stat"><div class="big">42</div>Riders</div>
+<div class="stat"><div class="big">3</div>360 Club</div>
+<div class="stat"><div class="big">4456.0</div>Total KM</div>
 </div>
 
+<div class="section">
 <div class="podium">
-<div class="p"><h3>🥈 Sooraj Ravi</h3><div>407.3 km</div></div>
-<div class="p"><h2>🥇 Noby Thomas</h2><div>743.5 km</div></div>
-<div class="p"><h3>🥉 Saju Kulathumkal,** SR ** 🇮🇳</h3><div>361.3 km</div></div>
+<h2>🏆 Podium</h2>
+<p>🥇 Noby Thomas (743.5 km)</p>
+<p>🥈 Sooraj Ravi (407.3 km)</p>
+<p>🥉 Saju Kulathumkal,** SR ** 🇮🇳 (361.3 km)</p>
+</div>
 </div>
 
-<div class="table">
-<h2>Full Leaderboard (42 Riders)</h2>
-<table>
-<tr><th>Rank</th><th>Rider</th><th>Distance (km)</th><th>Progress to 360</th></tr>
+<div class="section">
+<div class="movers">
+<h2>🔥 Weekly Movers</h2>
+<ul><li>Noby Thomas <b>+140.4 km</b></li><li>Sooraj Ravi <b>+65.7 km</b></li><li>Jose Prasanth KEG Bikers | KCC <b>+55.3 km</b></li><li>Philip Kuruvilla | KEG Bikers <b>+41.3 km</b></li><li>Sunil K Joseph <b>+30.3 km</b></li></ul>
+</div>
+</div>
 
-    <tr>
-      <td>1</td>
-      <td>Noby Thomas</td>
-      <td>743.5</td>
-      <td><div class="bar"><div class="fill" style="width:100.0%"></div></div></td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Sooraj Ravi</td>
-      <td>407.3</td>
-      <td><div class="bar"><div class="fill" style="width:100.0%"></div></div></td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Saju Kulathumkal,** SR ** 🇮🇳</td>
-      <td>361.3</td>
-      <td><div class="bar"><div class="fill" style="width:100.0%"></div></div></td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>Sumesh Kumar</td>
-      <td>319.7</td>
-      <td><div class="bar"><div class="fill" style="width:88.8%"></div></div></td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>Jose Prasanth KEG Bikers | KCC</td>
-      <td>277.7</td>
-      <td><div class="bar"><div class="fill" style="width:77.1%"></div></div></td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>ABU THOMAS</td>
-      <td>201.8</td>
-      <td><div class="bar"><div class="fill" style="width:56.1%"></div></div></td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>Abhijith Pattasseril</td>
-      <td>201.6</td>
-      <td><div class="bar"><div class="fill" style="width:56.0%"></div></div></td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>Jino Varkey // KEG Bikers</td>
-      <td>182.1</td>
-      <td><div class="bar"><div class="fill" style="width:50.6%"></div></div></td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td>Poly James | KEG Bikers | BWC Vaikom</td>
-      <td>175.3</td>
-      <td><div class="bar"><div class="fill" style="width:48.7%"></div></div></td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td>Sunil K Joseph</td>
-      <td>154.4</td>
-      <td><div class="bar"><div class="fill" style="width:42.9%"></div></div></td>
-    </tr>
-    <tr>
-      <td>11</td>
-      <td>Sebin Babu Vettukattil</td>
-      <td>152.1</td>
-      <td><div class="bar"><div class="fill" style="width:42.2%"></div></div></td>
-    </tr>
-    <tr>
-      <td>12</td>
-      <td>Jaise Johnson</td>
-      <td>150.1</td>
-      <td><div class="bar"><div class="fill" style="width:41.7%"></div></div></td>
-    </tr>
-    <tr>
-      <td>13</td>
-      <td>Philip Kuruvilla | KEG Bikers</td>
-      <td>118.1</td>
-      <td><div class="bar"><div class="fill" style="width:32.8%"></div></div></td>
-    </tr>
-    <tr>
-      <td>14</td>
-      <td>Prajod Sunny | KEG Bikers</td>
-      <td>107.3</td>
-      <td><div class="bar"><div class="fill" style="width:29.8%"></div></div></td>
-    </tr>
-    <tr>
-      <td>15</td>
-      <td>Ashith Soman</td>
-      <td>105.6</td>
-      <td><div class="bar"><div class="fill" style="width:29.3%"></div></div></td>
-    </tr>
-    <tr>
-      <td>16</td>
-      <td>Amal Jose</td>
-      <td>102.4</td>
-      <td><div class="bar"><div class="fill" style="width:28.4%"></div></div></td>
-    </tr>
-    <tr>
-      <td>17</td>
-      <td>Arun Mathew I KEG Bikers</td>
-      <td>100.3</td>
-      <td><div class="bar"><div class="fill" style="width:27.9%"></div></div></td>
-    </tr>
-    <tr>
-      <td>18</td>
-      <td>Josy Thomas</td>
-      <td>97.6</td>
-      <td><div class="bar"><div class="fill" style="width:27.1%"></div></div></td>
-    </tr>
-    <tr>
-      <td>19</td>
-      <td>Deepu Peter | KEG |KCC</td>
-      <td>81.9</td>
-      <td><div class="bar"><div class="fill" style="width:22.8%"></div></div></td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>Nitin Thomas</td>
-      <td>69.7</td>
-      <td><div class="bar"><div class="fill" style="width:19.4%"></div></div></td>
-    </tr>
-    <tr>
-      <td>21</td>
-      <td>Kiran C Kurian</td>
-      <td>67.9</td>
-      <td><div class="bar"><div class="fill" style="width:18.9%"></div></div></td>
-    </tr>
-    <tr>
-      <td>22</td>
-      <td>Jittu Sebastian</td>
-      <td>66.6</td>
-      <td><div class="bar"><div class="fill" style="width:18.5%"></div></div></td>
-    </tr>
-    <tr>
-      <td>23</td>
-      <td>Vishnu Indrabalan</td>
-      <td>50.6</td>
-      <td><div class="bar"><div class="fill" style="width:14.1%"></div></div></td>
-    </tr>
-    <tr>
-      <td>24</td>
-      <td>Jose Kuruvilla</td>
-      <td>47.0</td>
-      <td><div class="bar"><div class="fill" style="width:13.1%"></div></div></td>
-    </tr>
-    <tr>
-      <td>25</td>
-      <td>John Joseph | KEG | KCC</td>
-      <td>45.8</td>
-      <td><div class="bar"><div class="fill" style="width:12.7%"></div></div></td>
-    </tr>
-    <tr>
-      <td>26</td>
-      <td>George Kurian</td>
-      <td>38.3</td>
-      <td><div class="bar"><div class="fill" style="width:10.6%"></div></div></td>
-    </tr>
-    <tr>
-      <td>27</td>
-      <td>RENJU AeroSports | RaceFit Coaching</td>
-      <td>30.0</td>
-      <td><div class="bar"><div class="fill" style="width:8.3%"></div></div></td>
-    </tr>
-    <tr>
-      <td>28</td>
-      <td>Arjun Suresh</td>
-      <td>0.0</td>
-      <td><div class="bar"><div class="fill" style="width:0.0%"></div></div></td>
-    </tr>
-    <tr>
-      <td>29</td>
-      <td>Chandan RS</td>
-      <td>0.0</td>
-      <td><div class="bar"><div class="fill" style="width:0.0%"></div></div></td>
-    </tr>
-    <tr>
-      <td>30</td>
-      <td>Gino Marks//KEG//KCC 💪🏼💪🏼🚴‍♀️🚴‍♂️🏃‍♂️🏃‍♂️🍺🍻</td>
-      <td>0.0</td>
-      <td><div class="bar"><div class="fill" style="width:0.0%"></div></div></td>
-    </tr>
-    <tr>
-      <td>31</td>
-      <td>James K. Varkey</td>
-      <td>0.0</td>
-      <td><div class="bar"><div class="fill" style="width:0.0%"></div></div></td>
-    </tr>
-    <tr>
-      <td>32</td>
-      <td>Jithu Jose |KEG Bikers</td>
-      <td>0.0</td>
-      <td><div class="bar"><div class="fill" style="width:0.0%"></div></div></td>
-    </tr>
-    <tr>
-      <td>33</td>
-      <td>Joseph Mathew</td>
-      <td>0.0</td>
-      <td><div class="bar"><div class="fill" style="width:0.0%"></div></div></td>
-    </tr>
-    <tr>
-      <td>34</td>
-      <td>Kannan Sasi</td>
-      <td>0.0</td>
-      <td><div class="bar"><div class="fill" style="width:0.0%"></div></div></td>
-    </tr>
-    <tr>
-      <td>35</td>
-      <td>Naijil Mathew | KEG Bikers</td>
-      <td>0.0</td>
-      <td><div class="bar"><div class="fill" style="width:0.0%"></div></div></td>
-    </tr>
-    <tr>
-      <td>36</td>
-      <td>Renju Joyan</td>
-      <td>0.0</td>
-      <td><div class="bar"><div class="fill" style="width:0.0%"></div></div></td>
-    </tr>
-    <tr>
-      <td>37</td>
-      <td>Saiju Michael</td>
-      <td>0.0</td>
-      <td><div class="bar"><div class="fill" style="width:0.0%"></div></div></td>
-    </tr>
-    <tr>
-      <td>38</td>
-      <td>Sandeep S 𒈞 Pᴀlͥᴀkͣkͫᴀяa͢͢͢N ༻KEG ༻KCC ༻RaceFit</td>
-      <td>0.0</td>
-      <td><div class="bar"><div class="fill" style="width:0.0%"></div></div></td>
-    </tr>
-    <tr>
-      <td>39</td>
-      <td>Sethu Stephen || KEG bikers</td>
-      <td>0.0</td>
-      <td><div class="bar"><div class="fill" style="width:0.0%"></div></div></td>
-    </tr>
-    <tr>
-      <td>40</td>
-      <td>SR -Jopin |KEG Bikers</td>
-      <td>0.0</td>
-      <td><div class="bar"><div class="fill" style="width:0.0%"></div></div></td>
-    </tr>
-    <tr>
-      <td>41</td>
-      <td>Sreehari S</td>
-      <td>0.0</td>
-      <td><div class="bar"><div class="fill" style="width:0.0%"></div></div></td>
-    </tr>
-    <tr>
-      <td>42</td>
-      <td>Varghese | OTC 🇫🇮 | KEG 🇮🇳 🏊‍♂️🚴🏃‍♂️</td>
-      <td>0.0</td>
-      <td><div class="bar"><div class="fill" style="width:0.0%"></div></div></td>
-    </tr>
-</table>
+<div class="cards">
+
+    <div class='card'>
+      <div class='row'><span class='rank'>#1</span><span>743.5 km</span></div>
+      <h3>Noby Thomas</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+140.4</b></div>
+        <div>👑 To Monsoon Raja <b>256.5</b></div>
+      </div>
+      <div class='badge'>🏆 360 Club</div>
+      <div class='bar'><div class='fill' style='width:74.4%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#2</span><span>407.3 km</span></div>
+      <h3>Sooraj Ravi</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+65.7</b></div>
+        <div>👑 To Monsoon Raja <b>592.7</b></div>
+      </div>
+      <div class='badge'>🏆 360 Club</div>
+      <div class='bar'><div class='fill' style='width:40.7%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#3</span><span>361.3 km</span></div>
+      <h3>Saju Kulathumkal,** SR ** 🇮🇳</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>638.7</b></div>
+      </div>
+      <div class='badge'>🏆 360 Club</div>
+      <div class='bar'><div class='fill' style='width:36.1%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#4</span><span>319.7 km</span></div>
+      <h3>Sumesh Kumar</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>680.3</b></div>
+      </div>
+      <div class='badge'>🎯 40.3 km to 360</div>
+      <div class='bar'><div class='fill' style='width:32.0%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#5</span><span>277.7 km</span></div>
+      <h3>Jose Prasanth KEG Bikers | KCC</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+55.3</b></div>
+        <div>👑 To Monsoon Raja <b>722.3</b></div>
+      </div>
+      <div class='badge'>🎯 82.3 km to 360</div>
+      <div class='bar'><div class='fill' style='width:27.8%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#6</span><span>201.8 km</span></div>
+      <h3>ABU THOMAS</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>798.2</b></div>
+      </div>
+      <div class='badge'>🎯 158.2 km to 360</div>
+      <div class='bar'><div class='fill' style='width:20.2%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#7</span><span>201.6 km</span></div>
+      <h3>Abhijith Pattasseril</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>798.4</b></div>
+      </div>
+      <div class='badge'>🎯 158.4 km to 360</div>
+      <div class='bar'><div class='fill' style='width:20.2%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#8</span><span>182.1 km</span></div>
+      <h3>Jino Varkey // KEG Bikers</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>817.9</b></div>
+      </div>
+      <div class='badge'>🎯 177.9 km to 360</div>
+      <div class='bar'><div class='fill' style='width:18.2%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#9</span><span>175.3 km</span></div>
+      <h3>Poly James | KEG Bikers | BWC Vaikom</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>824.7</b></div>
+      </div>
+      <div class='badge'>🎯 184.7 km to 360</div>
+      <div class='bar'><div class='fill' style='width:17.5%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#10</span><span>154.4 km</span></div>
+      <h3>Sunil K Joseph</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+30.3</b></div>
+        <div>👑 To Monsoon Raja <b>845.6</b></div>
+      </div>
+      <div class='badge'>🎯 205.6 km to 360</div>
+      <div class='bar'><div class='fill' style='width:15.4%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#11</span><span>152.1 km</span></div>
+      <h3>Sebin Babu Vettukattil</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>847.9</b></div>
+      </div>
+      <div class='badge'>🎯 207.9 km to 360</div>
+      <div class='bar'><div class='fill' style='width:15.2%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#12</span><span>150.1 km</span></div>
+      <h3>Jaise Johnson</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>849.9</b></div>
+      </div>
+      <div class='badge'>🎯 209.9 km to 360</div>
+      <div class='bar'><div class='fill' style='width:15.0%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#13</span><span>118.1 km</span></div>
+      <h3>Philip Kuruvilla | KEG Bikers</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+41.3</b></div>
+        <div>👑 To Monsoon Raja <b>881.9</b></div>
+      </div>
+      <div class='badge'>🎯 241.9 km to 360</div>
+      <div class='bar'><div class='fill' style='width:11.8%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#14</span><span>107.3 km</span></div>
+      <h3>Prajod Sunny | KEG Bikers</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>892.7</b></div>
+      </div>
+      <div class='badge'>🎯 252.7 km to 360</div>
+      <div class='bar'><div class='fill' style='width:10.7%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#15</span><span>105.6 km</span></div>
+      <h3>Ashith Soman</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>894.4</b></div>
+      </div>
+      <div class='badge'>🎯 254.4 km to 360</div>
+      <div class='bar'><div class='fill' style='width:10.6%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#16</span><span>102.4 km</span></div>
+      <h3>Amal Jose</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>897.6</b></div>
+      </div>
+      <div class='badge'>🎯 257.6 km to 360</div>
+      <div class='bar'><div class='fill' style='width:10.2%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#17</span><span>100.3 km</span></div>
+      <h3>Arun Mathew I KEG Bikers</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>899.7</b></div>
+      </div>
+      <div class='badge'>🎯 259.7 km to 360</div>
+      <div class='bar'><div class='fill' style='width:10.0%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#18</span><span>97.6 km</span></div>
+      <h3>Josy Thomas</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>902.4</b></div>
+      </div>
+      <div class='badge'>🎯 262.4 km to 360</div>
+      <div class='bar'><div class='fill' style='width:9.8%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#19</span><span>81.9 km</span></div>
+      <h3>Deepu Peter | KEG |KCC</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>918.1</b></div>
+      </div>
+      <div class='badge'>🎯 278.1 km to 360</div>
+      <div class='bar'><div class='fill' style='width:8.2%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#20</span><span>69.7 km</span></div>
+      <h3>Nitin Thomas</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>930.3</b></div>
+      </div>
+      <div class='badge'>🎯 290.3 km to 360</div>
+      <div class='bar'><div class='fill' style='width:7.0%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#21</span><span>67.9 km</span></div>
+      <h3>Kiran C Kurian</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>932.1</b></div>
+      </div>
+      <div class='badge'>🎯 292.1 km to 360</div>
+      <div class='bar'><div class='fill' style='width:6.8%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#22</span><span>66.6 km</span></div>
+      <h3>Jittu Sebastian</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>933.4</b></div>
+      </div>
+      <div class='badge'>🎯 293.4 km to 360</div>
+      <div class='bar'><div class='fill' style='width:6.7%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#23</span><span>50.6 km</span></div>
+      <h3>Vishnu Indrabalan</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>949.4</b></div>
+      </div>
+      <div class='badge'>🎯 309.4 km to 360</div>
+      <div class='bar'><div class='fill' style='width:5.1%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#24</span><span>47.0 km</span></div>
+      <h3>Jose Kuruvilla</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>953.0</b></div>
+      </div>
+      <div class='badge'>🎯 313.0 km to 360</div>
+      <div class='bar'><div class='fill' style='width:4.7%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#25</span><span>45.8 km</span></div>
+      <h3>John Joseph | KEG | KCC</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>954.2</b></div>
+      </div>
+      <div class='badge'>🎯 314.2 km to 360</div>
+      <div class='bar'><div class='fill' style='width:4.6%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#26</span><span>38.3 km</span></div>
+      <h3>George Kurian</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>961.7</b></div>
+      </div>
+      <div class='badge'>🎯 321.7 km to 360</div>
+      <div class='bar'><div class='fill' style='width:3.8%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#27</span><span>30.0 km</span></div>
+      <h3>RENJU AeroSports | RaceFit Coaching</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>970.0</b></div>
+      </div>
+      <div class='badge'>🎯 330.0 km to 360</div>
+      <div class='bar'><div class='fill' style='width:3.0%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#28</span><span>0.0 km</span></div>
+      <h3>Arjun Suresh</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>1000.0</b></div>
+      </div>
+      <div class='badge'>🎯 360.0 km to 360</div>
+      <div class='bar'><div class='fill' style='width:0.0%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#29</span><span>0.0 km</span></div>
+      <h3>Chandan RS</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>1000.0</b></div>
+      </div>
+      <div class='badge'>🎯 360.0 km to 360</div>
+      <div class='bar'><div class='fill' style='width:0.0%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#30</span><span>0.0 km</span></div>
+      <h3>Gino Marks//KEG//KCC 💪🏼💪🏼🚴‍♀️🚴‍♂️🏃‍♂️🏃‍♂️🍺🍻</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>1000.0</b></div>
+      </div>
+      <div class='badge'>🎯 360.0 km to 360</div>
+      <div class='bar'><div class='fill' style='width:0.0%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#31</span><span>0.0 km</span></div>
+      <h3>James K. Varkey</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>1000.0</b></div>
+      </div>
+      <div class='badge'>🎯 360.0 km to 360</div>
+      <div class='bar'><div class='fill' style='width:0.0%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#32</span><span>0.0 km</span></div>
+      <h3>Jithu Jose |KEG Bikers</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>1000.0</b></div>
+      </div>
+      <div class='badge'>🎯 360.0 km to 360</div>
+      <div class='bar'><div class='fill' style='width:0.0%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#33</span><span>0.0 km</span></div>
+      <h3>Joseph Mathew</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>1000.0</b></div>
+      </div>
+      <div class='badge'>🎯 360.0 km to 360</div>
+      <div class='bar'><div class='fill' style='width:0.0%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#34</span><span>0.0 km</span></div>
+      <h3>Kannan Sasi</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>1000.0</b></div>
+      </div>
+      <div class='badge'>🎯 360.0 km to 360</div>
+      <div class='bar'><div class='fill' style='width:0.0%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#35</span><span>0.0 km</span></div>
+      <h3>Naijil Mathew | KEG Bikers</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>1000.0</b></div>
+      </div>
+      <div class='badge'>🎯 360.0 km to 360</div>
+      <div class='bar'><div class='fill' style='width:0.0%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#36</span><span>0.0 km</span></div>
+      <h3>Renju Joyan</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>1000.0</b></div>
+      </div>
+      <div class='badge'>🎯 360.0 km to 360</div>
+      <div class='bar'><div class='fill' style='width:0.0%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#37</span><span>0.0 km</span></div>
+      <h3>Saiju Michael</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>1000.0</b></div>
+      </div>
+      <div class='badge'>🎯 360.0 km to 360</div>
+      <div class='bar'><div class='fill' style='width:0.0%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#38</span><span>0.0 km</span></div>
+      <h3>Sandeep S 𒈞 Pᴀlͥᴀkͣkͫᴀяa͢͢͢N ༻KEG ༻KCC ༻RaceFit</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>1000.0</b></div>
+      </div>
+      <div class='badge'>🎯 360.0 km to 360</div>
+      <div class='bar'><div class='fill' style='width:0.0%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#39</span><span>0.0 km</span></div>
+      <h3>Sethu Stephen || KEG bikers</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>1000.0</b></div>
+      </div>
+      <div class='badge'>🎯 360.0 km to 360</div>
+      <div class='bar'><div class='fill' style='width:0.0%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#40</span><span>0.0 km</span></div>
+      <h3>SR -Jopin |KEG Bikers</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>1000.0</b></div>
+      </div>
+      <div class='badge'>🎯 360.0 km to 360</div>
+      <div class='bar'><div class='fill' style='width:0.0%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#41</span><span>0.0 km</span></div>
+      <h3>Sreehari S</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>1000.0</b></div>
+      </div>
+      <div class='badge'>🎯 360.0 km to 360</div>
+      <div class='bar'><div class='fill' style='width:0.0%'></div></div>
+    </div>
+    
+    <div class='card'>
+      <div class='row'><span class='rank'>#42</span><span>0.0 km</span></div>
+      <h3>Varghese | OTC 🇫🇮 | KEG 🇮🇳 🏊‍♂️🚴🏃‍♂️</h3>
+      <div class='metrics'>
+        <div>📈 This Week <b>+0.0</b></div>
+        <div>👑 To Monsoon Raja <b>1000.0</b></div>
+      </div>
+      <div class='badge'>🎯 360.0 km to 360</div>
+      <div class='bar'><div class='fill' style='width:0.0%'></div></div>
+    </div>
+    
 </div>
 </body>
 </html>
