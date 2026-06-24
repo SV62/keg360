@@ -154,7 +154,50 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--slate-50);margin:0;co
 .fill-progress{background:linear-gradient(90deg,#fca5a5,var(--red-500))}
 .fill-start{background:var(--slate-400)}
 
-.empty-msg{text-align:center;color:var(--muted);font-size:13px;padding:30px 0;display:none}
+/* ---------- NEW 360 FLASH ---------- */
+.badge.new360{
+  background:linear-gradient(135deg,var(--green-500),var(--green-700));
+  color:#fff;border-radius:6px;padding:2px 7px;font-size:11px;font-weight:800;
+  animation:flashIn .4s ease;white-space:nowrap;
+}
+@media(max-width:480px){.badge.new360{font-size:10px;padding:2px 5px}}
+@keyframes flashIn{from{transform:scale(1.25);opacity:0}to{transform:scale(1);opacity:1}}
+
+/* ---------- WEEK LABEL ---------- */
+.week-label{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;padding:0 2px}
+
+/* ---------- DAYS REMAINING PILL ---------- */
+.days-pill{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.18);padding:3px 11px;border-radius:999px;font-size:12px;font-weight:700;border:1px solid rgba(255,255,255,.28)}
+.days-pill .dn{font-size:15px;font-weight:800}
+
+/* ---------- GROUP PROGRESS ---------- */
+.group-progress{max-width:1280px;margin:0 auto;padding:4px 24px 0}
+.gp-card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 20px}
+.gp-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;gap:10px;flex-wrap:wrap}
+.gp-title{font-size:13.5px;font-weight:800}
+.gp-nums{font-size:12.5px;color:var(--muted);font-weight:600}
+.gp-track{height:12px;border-radius:99px;background:#e5e7eb;overflow:hidden}
+.gp-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--green-500),var(--green-700))}
+.gp-sub{display:flex;justify-content:space-between;margin-top:6px}
+.gp-sub span{font-size:11px;color:var(--muted);font-weight:600}
+
+/* ---------- FILTER TABS ---------- */
+.filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.ftab{padding:7px 14px;border-radius:10px;border:1.5px solid var(--slate-200);background:#fff;font-size:12.5px;font-weight:700;color:var(--muted);cursor:pointer;transition:all .15s;font-family:inherit;white-space:nowrap}
+.ftab:hover{border-color:var(--green-500);color:var(--green-600)}
+.ftab.active{background:var(--green-600);border-color:var(--green-600);color:#fff}
+.ftab-count{display:inline-block;border-radius:99px;padding:0 6px;margin-left:4px;font-size:11px;background:rgba(255,255,255,.25)}
+.ftab:not(.active) .ftab-count{background:var(--slate-200);color:var(--muted)}
+
+/* ---------- YET TO START ---------- */
+.tier-start .rider-name{color:var(--muted)}
+.yet-pill{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:var(--slate-400);background:#f1f5f9;border-radius:5px;padding:2px 7px}
+
+@media(max-width:640px){
+  .group-progress{padding:4px 16px 0}
+  .ftab{padding:6px 11px;font-size:12px}
+}
+
 footer{text-align:center;color:var(--muted);font-size:11.5px;padding:10px 0 26px}
 </style>
 </head>
@@ -170,6 +213,7 @@ footer{text-align:center;color:var(--muted);font-size:11.5px;padding:10px 0 26px
         <div class="hero-sub">
           <p>June Challenge Dashboard</p>
           <span class="live-pill"><span class="live-dot"></span>Live Standings</span>
+          <span class="days-pill">🏁 <span class="dn" id="daysLeft">6</span> days left</span>
         </div>
       </div>
     </div>
@@ -181,10 +225,13 @@ footer{text-align:center;color:var(--muted);font-size:11.5px;padding:10px 0 26px
 
 <div class="stats" id="statCards"></div>
 
+<div class="group-progress"><div class="gp-card" id="gpCard"></div></div>
+
 <div class="layout">
   <div class="sidebar">
     <div class="panel movers">
       <div class="panel-head"><h3>🔥 Weekly Movers</h3><a onclick="document.getElementById('riderList').scrollIntoView({behavior:'smooth'})">View All</a></div>
+      <div class="week-label">Week 3 · Jun 17–24</div>
       <div id="moversList"></div>
     </div>
     <div class="panel brink">
@@ -199,6 +246,7 @@ footer{text-align:center;color:var(--muted);font-size:11.5px;padding:10px 0 26px
 
   <div class="main">
     <div class="panel">
+      <div class="filter-tabs" id="filterTabs"></div>
       <div class="toolbar">
         <div class="search-box"><input id="searchInput" type="text" placeholder="Search rider by name..." oninput="renderList()"></div>
         <div class="legend">
@@ -214,10 +262,10 @@ footer{text-align:center;color:var(--muted);font-size:11.5px;padding:10px 0 26px
   </div>
 </div>
 
-<footer>KEG Challenge 360 · June Edition · Updated 20 June 2026</footer>
+<footer>KEG Challenge 360 · June Edition · Updated 24 June 2026</footer>
 
 <script>
-const riders = [{"rank": 1, "name": "Noby Thomas", "lastWeek": 603.1, "thisWeek": 440.9, "total": 1044.0, "to360": 0.0, "toRaja": 0.0}, {"rank": 2, "name": "Sooraj Ravi", "lastWeek": 341.6, "thisWeek": 433.1, "total": 774.7, "to360": 0.0, "toRaja": 225.3}, {"rank": 3, "name": "Saju Kulathumkal", "lastWeek": 361.3, "thisWeek": 184.5, "total": 545.8, "to360": 0.0, "toRaja": 454.2}, {"rank": 4, "name": "Jose Prasanth", "lastWeek": 222.4, "thisWeek": 279.2, "total": 501.6, "to360": 0.0, "toRaja": 498.4}, {"rank": 5, "name": "Sumesh Kumar", "lastWeek": 319.7, "thisWeek": 49.4, "total": 369.1, "to360": 0.0, "toRaja": 630.9}, {"rank": 6, "name": "Abhijith Pattasseril", "lastWeek": 201.6, "thisWeek": 115.4, "total": 317.0, "to360": 43.0, "toRaja": 683.0}, {"rank": 7, "name": "Sandeep Palakkaran", "lastWeek": 0.0, "thisWeek": 315.9, "total": 315.9, "to360": 44.1, "toRaja": 684.1}, {"rank": 8, "name": "Sebin Vettukattil", "lastWeek": 152.1, "thisWeek": 155.2, "total": 307.3, "to360": 52.7, "toRaja": 692.7}, {"rank": 9, "name": "Poly James", "lastWeek": 175.3, "thisWeek": 125.7, "total": 301.0, "to360": 59.0, "toRaja": 699.0}, {"rank": 10, "name": "Sunil Joseph", "lastWeek": 124.1, "thisWeek": 166.8, "total": 290.9, "to360": 69.1, "toRaja": 709.1}, {"rank": 11, "name": "Jino Varkey", "lastWeek": 182.1, "thisWeek": 98.0, "total": 280.1, "to360": 79.9, "toRaja": 719.9}, {"rank": 12, "name": "Philip Kuruvilla", "lastWeek": 76.8, "thisWeek": 171.4, "total": 248.2, "to360": 111.8, "toRaja": 751.8}, {"rank": 13, "name": "Abu Thomas", "lastWeek": 201.8, "thisWeek": 29.0, "total": 230.8, "to360": 129.2, "toRaja": 769.2}, {"rank": 14, "name": "Ashith Soman", "lastWeek": 105.6, "thisWeek": 118.7, "total": 224.3, "to360": 135.7, "toRaja": 775.7}, {"rank": 15, "name": "Deepu Peter", "lastWeek": 81.9, "thisWeek": 141.5, "total": 223.4, "to360": 136.6, "toRaja": 776.6}, {"rank": 16, "name": "Kiran Kurian", "lastWeek": 67.9, "thisWeek": 152.1, "total": 220.0, "to360": 140.0, "toRaja": 780.0}, {"rank": 17, "name": "Jaise Johnson", "lastWeek": 150.1, "thisWeek": 31.6, "total": 181.7, "to360": 178.3, "toRaja": 818.3}, {"rank": 18, "name": "Arun Mathew", "lastWeek": 100.3, "thisWeek": 80.1, "total": 180.4, "to360": 179.6, "toRaja": 819.6}, {"rank": 19, "name": "Josy Thomas", "lastWeek": 97.6, "thisWeek": 79.1, "total": 176.7, "to360": 183.3, "toRaja": 823.3}, {"rank": 20, "name": "Nitin Thomas", "lastWeek": 69.7, "thisWeek": 67.0, "total": 136.7, "to360": 223.3, "toRaja": 863.3}, {"rank": 21, "name": "John Joseph", "lastWeek": 45.8, "thisWeek": 84.7, "total": 130.5, "to360": 229.5, "toRaja": 869.5}, {"rank": 22, "name": "George Kurian", "lastWeek": 38.3, "thisWeek": 71.7, "total": 110.0, "to360": 250.0, "toRaja": 890.0}, {"rank": 23, "name": "Prajod Sunny", "lastWeek": 107.3, "thisWeek": 0.0, "total": 107.3, "to360": 252.7, "toRaja": 892.7}, {"rank": 24, "name": "Varghese", "lastWeek": 0.0, "thisWeek": 106.2, "total": 106.2, "to360": 253.8, "toRaja": 893.8}, {"rank": 25, "name": "Jose Kuruvilla", "lastWeek": 47.0, "thisWeek": 57.1, "total": 104.1, "to360": 255.9, "toRaja": 895.9}, {"rank": 26, "name": "Amal Jose", "lastWeek": 102.4, "thisWeek": 0.0, "total": 102.4, "to360": 257.6, "toRaja": 897.6}, {"rank": 27, "name": "Jittu Sebastian", "lastWeek": 66.6, "thisWeek": 26.0, "total": 92.6, "to360": 267.4, "toRaja": 907.4}, {"rank": 28, "name": "Joseph Mathew", "lastWeek": 0.0, "thisWeek": 73.8, "total": 73.8, "to360": 286.2, "toRaja": 926.2}, {"rank": 29, "name": "Vishnu Indrabalan", "lastWeek": 50.6, "thisWeek": 0.0, "total": 50.6, "to360": 309.4, "toRaja": 949.4}, {"rank": 30, "name": "Saiju Michael", "lastWeek": 0.0, "thisWeek": 50.1, "total": 50.1, "to360": 309.9, "toRaja": 949.9}, {"rank": 31, "name": "Renju Aerosports", "lastWeek": 30.0, "thisWeek": 19.2, "total": 49.2, "to360": 310.8, "toRaja": 950.8}, {"rank": 32, "name": "Sr Jopin", "lastWeek": 0.0, "thisWeek": 30.0, "total": 30.0, "to360": 330.0, "toRaja": 970.0}, {"rank": 33, "name": "Arjun Suresh", "lastWeek": 0.0, "thisWeek": 26.9, "total": 26.9, "to360": 333.1, "toRaja": 973.1}, {"rank": 34, "name": "Gino Marks", "lastWeek": 0.0, "thisWeek": 10.6, "total": 10.6, "to360": 349.4, "toRaja": 989.4}, {"rank": 35, "name": "Chandan Rs", "lastWeek": 0.0, "thisWeek": 0.0, "total": 0.0, "to360": 360.0, "toRaja": 1000.0}, {"rank": 36, "name": "Kannan Sasi", "lastWeek": 0.0, "thisWeek": 0.0, "total": 0.0, "to360": 360.0, "toRaja": 1000.0}, {"rank": 37, "name": "Jithu Jose", "lastWeek": 0.0, "thisWeek": 0.0, "total": 0.0, "to360": 360.0, "toRaja": 1000.0}, {"rank": 38, "name": "James Varkey", "lastWeek": 0.0, "thisWeek": 0.0, "total": 0.0, "to360": 360.0, "toRaja": 1000.0}, {"rank": 39, "name": "Naijil Mathew", "lastWeek": 0.0, "thisWeek": 0.0, "total": 0.0, "to360": 360.0, "toRaja": 1000.0}, {"rank": 40, "name": "Renju Joyan", "lastWeek": 0.0, "thisWeek": 0.0, "total": 0.0, "to360": 360.0, "toRaja": 1000.0}, {"rank": 41, "name": "Sreehari S", "lastWeek": 0.0, "thisWeek": 0.0, "total": 0.0, "to360": 360.0, "toRaja": 1000.0}, {"rank": 42, "name": "Sethu Stephen", "lastWeek": 0.0, "thisWeek": 0.0, "total": 0.0, "to360": 360.0, "toRaja": 1000.0}];
+const riders = [{"rank":1,"name":"Noby Thomas","thisWeek":213.8,"total":1598.4,"to360":0.0,"toRaja":0.0},{"rank":2,"name":"Sooraj Ravi","thisWeek":0.0,"total":859.0,"to360":0.0,"toRaja":141.0},{"rank":3,"name":"Jose Prasanth","thisWeek":157.7,"total":780.4,"to360":0.0,"toRaja":219.6},{"rank":4,"name":"Saju Kulathumkal","thisWeek":213.5,"total":759.3,"to360":0.0,"toRaja":240.7},{"rank":5,"name":"Ashith Soman","thisWeek":38.4,"total":451.6,"to360":0.0,"toRaja":548.4},{"rank":6,"name":"Abhijith Pattasseril","thisWeek":40.6,"total":449.7,"to360":0.0,"toRaja":550.3},{"rank":7,"name":"Sumesh Kumar","thisWeek":45.0,"total":430.0,"to360":0.0,"toRaja":570.0},{"rank":8,"name":"Sunil Joseph","thisWeek":30.2,"total":394.8,"to360":0.0,"toRaja":605.2},{"rank":9,"name":"Poly James","thisWeek":67.9,"total":368.9,"to360":0.0,"toRaja":631.1},{"rank":10,"name":"Jino Varkey","thisWeek":0.0,"total":345.7,"to360":14.3,"toRaja":654.3},{"rank":11,"name":"Sandeep Palakkaran","thisWeek":0.0,"total":315.9,"to360":44.1,"toRaja":684.1},{"rank":12,"name":"Sebin Vettukattil","thisWeek":0.0,"total":307.3,"to360":52.7,"toRaja":692.7},{"rank":13,"name":"Philip Kuruvilla","thisWeek":41.4,"total":289.6,"to360":70.4,"toRaja":710.4},{"rank":14,"name":"Varghese","thisWeek":0.0,"total":279.8,"to360":80.2,"toRaja":720.2},{"rank":15,"name":"Deepu Peter","thisWeek":55.9,"total":279.3,"to360":80.7,"toRaja":720.7},{"rank":16,"name":"Abu Thomas","thisWeek":31.5,"total":262.3,"to360":97.7,"toRaja":737.7},{"rank":17,"name":"Josy Thomas","thisWeek":0.0,"total":257.1,"to360":102.9,"toRaja":742.9},{"rank":18,"name":"Amal Jose","thisWeek":0.0,"total":224.5,"to360":135.5,"toRaja":775.5},{"rank":19,"name":"Kiran Kurian","thisWeek":0.0,"total":220.0,"to360":140.0,"toRaja":780.0},{"rank":20,"name":"Jaise Johnson","thisWeek":18.9,"total":200.6,"to360":159.4,"toRaja":799.4},{"rank":21,"name":"George Kurian","thisWeek":0.0,"total":195.2,"to360":164.8,"toRaja":804.8},{"rank":22,"name":"John Joseph","thisWeek":61.8,"total":192.3,"to360":167.7,"toRaja":807.7},{"rank":23,"name":"Jose Kuruvilla","thisWeek":25.8,"total":180.6,"to360":179.4,"toRaja":819.4},{"rank":24,"name":"Arun Mathew","thisWeek":0.0,"total":180.4,"to360":179.6,"toRaja":819.6},{"rank":25,"name":"Nitin Thomas","thisWeek":0.0,"total":136.7,"to360":223.3,"toRaja":863.3},{"rank":26,"name":"Jittu Sebastian","thisWeek":0.0,"total":120.7,"to360":239.3,"toRaja":879.3},{"rank":27,"name":"Arjun Suresh","thisWeek":0.0,"total":109.6,"to360":250.4,"toRaja":890.4},{"rank":28,"name":"Prajod Sunny","thisWeek":0.0,"total":107.3,"to360":252.7,"toRaja":892.7},{"rank":29,"name":"Renju Aerosports","thisWeek":0.0,"total":98.5,"to360":261.5,"toRaja":901.5},{"rank":30,"name":"Joseph Mathew","thisWeek":0.0,"total":93.5,"to360":266.5,"toRaja":906.5},{"rank":31,"name":"Vishnu Indrabalan","thisWeek":0.0,"total":50.6,"to360":309.4,"toRaja":949.4},{"rank":32,"name":"Saiju Michael","thisWeek":0.0,"total":50.1,"to360":309.9,"toRaja":949.9},{"rank":33,"name":"Sr Jopin","thisWeek":0.0,"total":30.0,"to360":330.0,"toRaja":970.0},{"rank":34,"name":"Gino Marks","thisWeek":0.0,"total":10.6,"to360":349.4,"toRaja":989.4},{"rank":35,"name":"Chandan Rs","thisWeek":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0},{"rank":36,"name":"Sreehari S","thisWeek":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0},{"rank":37,"name":"Kannan Sasi","thisWeek":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0},{"rank":38,"name":"Sethu Stephen","thisWeek":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0},{"rank":39,"name":"Jithu Jose","thisWeek":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0},{"rank":40,"name":"James Varkey","thisWeek":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0},{"rank":41,"name":"Naijil Mathew","thisWeek":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0},{"rank":42,"name":"Renju Joyan","thisWeek":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0}];
 
 const CLUB_TARGET = 360, RAJA_TARGET = 1000;
 const fmt = n => n.toLocaleString('en-IN',{minimumFractionDigits:1,maximumFractionDigits:1});
@@ -232,6 +280,11 @@ const brinkSet = new Set(brinkTop5.map(r=>r.name));
 const weeklyTop5 = [...riders].sort((a,b)=>b.thisWeek-a.thisWeek).slice(0,5);
 const fameTop5 = [...clubMembers].sort((a,b)=>b.total-a.total).slice(0,5);
 
+// Riders who newly crossed 360 this week (total >= 360, this week contributed)
+// 360 Club members as of Jun 20 update — anyone now at 360+ who wasn't here is "new this week"
+const prev360Club = new Set(["Noby Thomas","Sooraj Ravi","Saju Kulathumkal","Jose Prasanth","Sumesh Kumar"]);
+const new360Set = new Set(riders.filter(r=>r.total>=360 && !prev360Club.has(r.name)).map(r=>r.name));
+
 function tierOf(r){
   if(r.total>=RAJA_TARGET) return 'raja';
   if(r.total>=CLUB_TARGET) return 'club';
@@ -240,7 +293,41 @@ function tierOf(r){
   return 'start';
 }
 
-// ---- Hero stats ----
+// ---- Days remaining ----
+const challengeEnd = new Date('2026-06-30');
+const today = new Date();
+const daysLeft = Math.max(0, Math.ceil((challengeEnd - today) / 86400000));
+document.getElementById('daysLeft').textContent = daysLeft;
+
+// ---- Group progress bar ----
+const GROUP_TARGET = riders.length * 360; // 42 × 360 = 15,120 km
+const gpPct = Math.min(100, Math.round(totalKm / GROUP_TARGET * 100));
+document.getElementById('gpCard').innerHTML = `
+  <div class="gp-head">
+    <span class="gp-title">🚴 Group Progress · ${riders.length} Riders × 360 km</span>
+    <span class="gp-nums">${fmt(totalKm)} of ${fmt(GROUP_TARGET)} km · <b>${gpPct}%</b> achieved</span>
+  </div>
+  <div class="gp-track"><div class="gp-fill" style="width:${gpPct}%"></div></div>
+  <div class="gp-sub"><span>0 km</span><span>${fmt(GROUP_TARGET / 2)} km halfway</span><span>${fmt(GROUP_TARGET)} km goal</span></div>`;
+
+// ---- Filter tabs ----
+let activeFilter = 'all';
+const filters = [
+  {id:'all',     label:'All Riders',  fn: ()=>true},
+  {id:'club',    label:'360 Club',    fn: r=>r.total>=360},
+  {id:'brink',   label:'On the Brink',fn: r=>brinkSet.has(r.name)},
+  {id:'progress',label:'In Progress', fn: r=>r.total>0&&r.total<360&&!brinkSet.has(r.name)},
+  {id:'start',   label:'Yet to Start',fn: r=>r.total===0},
+];
+function buildTabs(){
+  document.getElementById('filterTabs').innerHTML = filters.map(f=>{
+    const count = riders.filter(f.fn).length;
+    return `<button class="ftab${activeFilter===f.id?' active':''}" onclick="setFilter('${f.id}')">
+      ${f.label}<span class="ftab-count">${count}</span></button>`;
+  }).join('');
+}
+function setFilter(id){activeFilter=id;buildTabs();renderList();}
+buildTabs();
 document.getElementById('heroStats').innerHTML = `
   <div class="hero-stat"><div class="ic">👥</div><div class="n">${totalRiders}</div><div class="l">Riders</div></div>
   <div class="hero-stat"><div class="ic">🎯</div><div class="n">${clubMembers.length}</div><div class="l">360 Club</div></div>
@@ -281,7 +368,8 @@ document.getElementById('fameList').innerHTML = fameTop5.map((r,i)=>`
 // ---- Main rider list ----
 function renderList(){
   const q = document.getElementById('searchInput').value.trim().toLowerCase();
-  const filtered = riders.filter(r=>r.name.toLowerCase().includes(q));
+  const filterFn = filters.find(f=>f.id===activeFilter).fn;
+  const filtered = riders.filter(r=>r.name.toLowerCase().includes(q) && filterFn(r));
   document.getElementById('emptyMsg').style.display = filtered.length ? 'none' : 'block';
 
   document.getElementById('riderList').innerHTML = filtered.map(r=>{
@@ -295,7 +383,10 @@ function renderList(){
       badgesHtml = `<span class="badge raja">👑 Monsoon Raja</span><span class="badge club">🏆 360 Club</span>`;
     } else if(tier==='club'){
       statusLine = `${fmt(r.toRaja)} km to Monsoon Raja`;
-      badgesHtml = `<span class="badge club">🏆 360 Club</span>`;
+      badgesHtml = `<span class="badge club">🏆 360 Club</span>${new360Set.has(r.name)?'<span class="badge new360">🆕 Joined this week!</span>':''}`;
+    } else if(tier==='start'){
+      statusLine = 'Yet to start — every km counts!';
+      badgesHtml = `<span class="yet-pill">⏳ Not started</span>`;
     } else {
       statusLine = `${fmt(r.toRaja)} km to Monsoon Raja`;
       badgesHtml = `<span class="badge target">🎯 ${fmt(r.to360)} km to 360 Club</span>`;
@@ -312,10 +403,10 @@ function renderList(){
         <div class="badges">${badgesHtml}</div>
       </div>
       <div class="rider-right">
-        <div class="rider-total">${fmt(r.total)} km</div>
+        <div class="rider-total">${tier==='start'?'—':fmt(r.total)+' km'}</div>
         <div class="rider-status">${statusLine}</div>
         <div class="bar-track"><div class="bar-fill fill-${tier}" style="width:${pct}%"></div></div>
-        <div class="bar-pct">${pct}%</div>
+        <div class="bar-pct">${tier==='start'?'0%':pct+'%'}</div>
       </div>
     </div>`;
   }).join('');
