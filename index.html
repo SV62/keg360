@@ -19,7 +19,7 @@
 }
 *{box-sizing:border-box}
 body{font-family:'Inter',Arial,sans-serif;background:var(--slate-50);margin:0;color:var(--ink)}
-
+ 
 /* ---------- HERO ---------- */
 .hero{
   background:linear-gradient(135deg,var(--green-700),var(--green-500));
@@ -40,7 +40,7 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--slate-50);margin:0;co
 .hero-stat .n{font-size:18px;font-weight:800;line-height:1.3}
 .hero-stat .l{font-size:10.5px;opacity:.88;font-weight:600;text-transform:uppercase;letter-spacing:.4px}
 .hero-bike{position:absolute;right:6%;top:50%;transform:translateY(-50%);font-size:90px;opacity:.13;z-index:1;pointer-events:none}
-
+ 
 @media(max-width:640px){
   .hero{padding:18px 16px;overflow:hidden}
   .hero-inner{flex-direction:column;align-items:flex-start;gap:14px}
@@ -57,7 +57,7 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--slate-50);margin:0;co
   .stats{padding:16px 16px 4px;grid-template-columns:repeat(2,1fr)}
   .layout{padding:14px 16px 32px}
 }
-
+ 
 /* ---------- BANNER ---------- */
 .banner{background:linear-gradient(135deg,var(--amber-50),#fff7e0);border-bottom:1px solid #fde68a}
 .banner-inner{max-width:1280px;margin:0 auto;padding:16px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
@@ -65,7 +65,7 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--slate-50);margin:0;co
 .banner-ic{font-size:24px;flex-shrink:0;line-height:1}
 .banner-item h4{margin:0;font-size:13.5px;font-weight:700;color:var(--ink)}
 .banner-item p{margin:2px 0 0;font-size:12.5px;color:var(--muted)}
-
+ 
 /* ---------- STAT CARDS ---------- */
 .stats{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;padding:18px 24px 6px}
 .stat-card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;display:flex;align-items:center;gap:12px}
@@ -76,31 +76,31 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--slate-50);margin:0;co
 .ic-club{background:var(--orange-100);color:var(--orange-500)}
 .ic-km{background:#dbeafe;color:#2563eb}
 .ic-raja{background:#ede9fe;color:var(--purple-600)}
-
+ 
 /* ---------- LAYOUT ---------- */
 .layout{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:300px 1fr;gap:18px;padding:14px 24px 40px;align-items:start}
 @media(max-width:880px){.layout{grid-template-columns:1fr}}
-
+ 
 .panel{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
 .panel + .panel{margin-top:14px}
 .panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
 .panel-head h3{margin:0;font-size:14px;font-weight:800;display:flex;align-items:center;gap:6px}
 .panel-head a{font-size:12px;color:var(--green-600);font-weight:700;text-decoration:none;cursor:pointer}
 .panel-head a:hover{text-decoration:underline}
-
+ 
 .mini-row{display:flex;align-items:center;gap:10px;padding:7px 2px;border-bottom:1px solid #f1f5f9}
 .mini-row:last-child{border-bottom:none}
 .mini-badge{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;color:#fff}
 .mini-name{flex:1;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .mini-val{font-size:12.5px;font-weight:700;flex-shrink:0}
-
+ 
 .movers .mini-badge{background:var(--green-600)}
 .movers .mini-val{color:#2563eb}
 .brink .mini-badge{background:var(--orange-500)}
 .brink .mini-val{color:var(--red-500)}
 .fame .mini-badge{background:var(--amber-500)}
 .fame .mini-name{font-weight:700}
-
+ 
 /* ---------- SEARCH + LEGEND ---------- */
 .toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px}
 .search-box{flex:1;min-width:220px;position:relative}
@@ -110,7 +110,7 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--slate-50);margin:0;co
 .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);font-weight:600}
 .legend span{display:inline-flex;align-items:center;gap:5px}
 .dot{width:9px;height:9px;border-radius:50%;display:inline-block}
-
+ 
 /* ---------- RIDER CARDS ---------- */
 #riderList{display:flex;flex-direction:column;gap:10px}
 .rider-card{border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:14px;border:1px solid transparent}
@@ -118,7 +118,7 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--slate-50);margin:0;co
 .rank-1{background:linear-gradient(135deg,#fde68a,#f59e0b);color:#7c2d12}
 .rank-2{background:linear-gradient(135deg,#e5e7eb,#9ca3af);color:#1f2937}
 .rank-3{background:linear-gradient(135deg,#fbcfe8,#fb923c);color:#7c2d12}
-
+ 
 .rider-main{flex:1;min-width:0}
 .rider-name{font-size:15px;font-weight:700;margin:0 0 3px}
 .rider-week{font-size:12px;color:#2563eb;font-weight:600;margin:0 0 4px}
@@ -127,7 +127,7 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--slate-50);margin:0;co
 .badge.raja{color:var(--purple-600)}
 .badge.club{color:var(--green-600)}
 .badge.target{color:#2563eb}
-
+ 
 .rider-right{width:230px;flex-shrink:0;text-align:right}
 @media(max-width:600px){.rider-right{width:140px}}
 .rider-total{font-size:17px;font-weight:800}
@@ -135,25 +135,25 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--slate-50);margin:0;co
 .bar-track{height:7px;border-radius:99px;background:#e5e7eb;overflow:hidden}
 .bar-fill{height:100%;border-radius:99px}
 .bar-pct{font-size:10.5px;color:var(--muted);font-weight:700;margin-top:3px;text-align:right}
-
+ 
 .tier-raja{background:var(--green-50);border-color:#bbf7d0}
 .tier-club{background:var(--green-50);border-color:#bbf7d0}
 .tier-brink{background:var(--orange-50);border-color:var(--orange-100)}
 .tier-progress{background:var(--red-50);border-color:var(--red-100)}
 .tier-start{background:var(--slate-50);border-color:var(--slate-200)}
-
+ 
 .tier-raja .rider-status{color:var(--purple-600)}
 .tier-club .rider-status{color:var(--green-700)}
 .tier-brink .rider-status{color:var(--orange-500)}
 .tier-progress .rider-status{color:var(--red-500)}
 .tier-start .rider-status{color:var(--slate-400)}
-
+ 
 .fill-raja{background:linear-gradient(90deg,var(--green-600),var(--purple-600))}
 .fill-club{background:linear-gradient(90deg,var(--green-500),var(--green-600))}
 .fill-brink{background:linear-gradient(90deg,var(--amber-400),var(--orange-500))}
 .fill-progress{background:linear-gradient(90deg,#fca5a5,var(--red-500))}
 .fill-start{background:var(--slate-400)}
-
+ 
 /* ---------- NEW 360 FLASH ---------- */
 .badge.new360{
   background:linear-gradient(135deg,var(--green-500),var(--green-700));
@@ -162,14 +162,14 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--slate-50);margin:0;co
 }
 @media(max-width:480px){.badge.new360{font-size:10px;padding:2px 5px}}
 @keyframes flashIn{from{transform:scale(1.25);opacity:0}to{transform:scale(1);opacity:1}}
-
+ 
 /* ---------- WEEK LABEL ---------- */
 .week-label{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;padding:0 2px}
-
+ 
 /* ---------- DAYS REMAINING PILL ---------- */
 .days-pill{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.18);padding:3px 11px;border-radius:999px;font-size:12px;font-weight:700;border:1px solid rgba(255,255,255,.28)}
 .days-pill .dn{font-size:15px;font-weight:800}
-
+ 
 /* ---------- GROUP PROGRESS ---------- */
 .group-progress{max-width:1280px;margin:0 auto;padding:4px 24px 0}
 .gp-card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 20px}
@@ -180,7 +180,7 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--slate-50);margin:0;co
 .gp-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--green-500),var(--green-700))}
 .gp-sub{display:flex;justify-content:space-between;margin-top:6px}
 .gp-sub span{font-size:11px;color:var(--muted);font-weight:600}
-
+ 
 /* ---------- FILTER TABS ---------- */
 .filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
 .ftab{padding:7px 14px;border-radius:10px;border:1.5px solid var(--slate-200);background:#fff;font-size:12.5px;font-weight:700;color:var(--muted);cursor:pointer;transition:all .15s;font-family:inherit;white-space:nowrap}
@@ -188,21 +188,21 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--slate-50);margin:0;co
 .ftab.active{background:var(--green-600);border-color:var(--green-600);color:#fff}
 .ftab-count{display:inline-block;border-radius:99px;padding:0 6px;margin-left:4px;font-size:11px;background:rgba(255,255,255,.25)}
 .ftab:not(.active) .ftab-count{background:var(--slate-200);color:var(--muted)}
-
+ 
 /* ---------- YET TO START ---------- */
 .tier-start .rider-name{color:var(--muted)}
 .yet-pill{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:var(--slate-400);background:#f1f5f9;border-radius:5px;padding:2px 7px}
-
+ 
 @media(max-width:640px){
   .group-progress{padding:4px 16px 0}
   .ftab{padding:6px 11px;font-size:12px}
 }
-
+ 
 footer{text-align:center;color:var(--muted);font-size:11.5px;padding:10px 0 26px}
 </style>
 </head>
 <body>
-
+ 
 <div class="hero">
   <div class="hero-bike">🚴</div>
   <div class="hero-inner">
@@ -220,13 +220,13 @@ footer{text-align:center;color:var(--muted);font-size:11.5px;padding:10px 0 26px
     <div class="hero-stats" id="heroStats"></div>
   </div>
 </div>
-
+ 
 <div class="banner"><div class="banner-inner" id="bannerInner"></div></div>
-
+ 
 <div class="stats" id="statCards"></div>
-
+ 
 <div class="group-progress"><div class="gp-card" id="gpCard"></div></div>
-
+ 
 <div class="layout">
   <div class="sidebar">
     <div class="panel movers">
@@ -243,7 +243,7 @@ footer{text-align:center;color:var(--muted);font-size:11.5px;padding:10px 0 26px
       <div id="fameList"></div>
     </div>
   </div>
-
+ 
   <div class="main">
     <div class="panel">
       <div class="filter-tabs" id="filterTabs"></div>
@@ -261,15 +261,15 @@ footer{text-align:center;color:var(--muted);font-size:11.5px;padding:10px 0 26px
     </div>
   </div>
 </div>
-
+ 
 <footer>KEG Challenge 360 · June Edition · Updated 24 June 2026</footer>
-
+ 
 <script>
 const riders = [{"rank":1,"name":"Noby Thomas","thisWeek":213.8,"total":1598.4,"to360":0.0,"toRaja":0.0},{"rank":2,"name":"Sooraj Ravi","thisWeek":0.0,"total":859.0,"to360":0.0,"toRaja":141.0},{"rank":3,"name":"Jose Prasanth","thisWeek":157.7,"total":780.4,"to360":0.0,"toRaja":219.6},{"rank":4,"name":"Saju Kulathumkal","thisWeek":213.5,"total":759.3,"to360":0.0,"toRaja":240.7},{"rank":5,"name":"Ashith Soman","thisWeek":38.4,"total":451.6,"to360":0.0,"toRaja":548.4},{"rank":6,"name":"Abhijith Pattasseril","thisWeek":40.6,"total":449.7,"to360":0.0,"toRaja":550.3},{"rank":7,"name":"Sumesh Kumar","thisWeek":45.0,"total":430.0,"to360":0.0,"toRaja":570.0},{"rank":8,"name":"Sunil Joseph","thisWeek":30.2,"total":394.8,"to360":0.0,"toRaja":605.2},{"rank":9,"name":"Poly James","thisWeek":67.9,"total":368.9,"to360":0.0,"toRaja":631.1},{"rank":10,"name":"Jino Varkey","thisWeek":0.0,"total":345.7,"to360":14.3,"toRaja":654.3},{"rank":11,"name":"Sandeep Palakkaran","thisWeek":0.0,"total":315.9,"to360":44.1,"toRaja":684.1},{"rank":12,"name":"Sebin Vettukattil","thisWeek":0.0,"total":307.3,"to360":52.7,"toRaja":692.7},{"rank":13,"name":"Philip Kuruvilla","thisWeek":41.4,"total":289.6,"to360":70.4,"toRaja":710.4},{"rank":14,"name":"Varghese","thisWeek":0.0,"total":279.8,"to360":80.2,"toRaja":720.2},{"rank":15,"name":"Deepu Peter","thisWeek":55.9,"total":279.3,"to360":80.7,"toRaja":720.7},{"rank":16,"name":"Abu Thomas","thisWeek":31.5,"total":262.3,"to360":97.7,"toRaja":737.7},{"rank":17,"name":"Josy Thomas","thisWeek":0.0,"total":257.1,"to360":102.9,"toRaja":742.9},{"rank":18,"name":"Amal Jose","thisWeek":0.0,"total":224.5,"to360":135.5,"toRaja":775.5},{"rank":19,"name":"Kiran Kurian","thisWeek":0.0,"total":220.0,"to360":140.0,"toRaja":780.0},{"rank":20,"name":"Jaise Johnson","thisWeek":18.9,"total":200.6,"to360":159.4,"toRaja":799.4},{"rank":21,"name":"George Kurian","thisWeek":0.0,"total":195.2,"to360":164.8,"toRaja":804.8},{"rank":22,"name":"John Joseph","thisWeek":61.8,"total":192.3,"to360":167.7,"toRaja":807.7},{"rank":23,"name":"Jose Kuruvilla","thisWeek":25.8,"total":180.6,"to360":179.4,"toRaja":819.4},{"rank":24,"name":"Arun Mathew","thisWeek":0.0,"total":180.4,"to360":179.6,"toRaja":819.6},{"rank":25,"name":"Nitin Thomas","thisWeek":0.0,"total":136.7,"to360":223.3,"toRaja":863.3},{"rank":26,"name":"Jittu Sebastian","thisWeek":0.0,"total":120.7,"to360":239.3,"toRaja":879.3},{"rank":27,"name":"Arjun Suresh","thisWeek":0.0,"total":109.6,"to360":250.4,"toRaja":890.4},{"rank":28,"name":"Prajod Sunny","thisWeek":0.0,"total":107.3,"to360":252.7,"toRaja":892.7},{"rank":29,"name":"Renju Aerosports","thisWeek":0.0,"total":98.5,"to360":261.5,"toRaja":901.5},{"rank":30,"name":"Joseph Mathew","thisWeek":0.0,"total":93.5,"to360":266.5,"toRaja":906.5},{"rank":31,"name":"Vishnu Indrabalan","thisWeek":0.0,"total":50.6,"to360":309.4,"toRaja":949.4},{"rank":32,"name":"Saiju Michael","thisWeek":0.0,"total":50.1,"to360":309.9,"toRaja":949.9},{"rank":33,"name":"Sr Jopin","thisWeek":0.0,"total":30.0,"to360":330.0,"toRaja":970.0},{"rank":34,"name":"Gino Marks","thisWeek":0.0,"total":10.6,"to360":349.4,"toRaja":989.4},{"rank":35,"name":"Chandan Rs","thisWeek":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0},{"rank":36,"name":"Sreehari S","thisWeek":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0},{"rank":37,"name":"Kannan Sasi","thisWeek":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0},{"rank":38,"name":"Sethu Stephen","thisWeek":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0},{"rank":39,"name":"Jithu Jose","thisWeek":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0},{"rank":40,"name":"James Varkey","thisWeek":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0},{"rank":41,"name":"Naijil Mathew","thisWeek":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0},{"rank":42,"name":"Renju Joyan","thisWeek":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0}];
-
+ 
 const CLUB_TARGET = 360, RAJA_TARGET = 1000;
 const fmt = n => n.toLocaleString('en-IN',{minimumFractionDigits:1,maximumFractionDigits:1});
-
+ 
 const totalRiders = riders.length;
 const clubMembers = riders.filter(r=>r.total>=CLUB_TARGET);
 const rajaMembers = riders.filter(r=>r.total>=RAJA_TARGET);
@@ -279,12 +279,12 @@ const brinkTop5 = notYetClub.slice(0,5);
 const brinkSet = new Set(brinkTop5.map(r=>r.name));
 const weeklyTop5 = [...riders].sort((a,b)=>b.thisWeek-a.thisWeek).slice(0,5);
 const fameTop5 = [...clubMembers].sort((a,b)=>b.total-a.total).slice(0,5);
-
+ 
 // Riders who newly crossed 360 this week (total >= 360, this week contributed)
 // 360 Club members as of Jun 20 update — anyone now at 360+ who wasn't here is "new this week"
 const prev360Club = new Set(["Noby Thomas","Sooraj Ravi","Saju Kulathumkal","Jose Prasanth","Sumesh Kumar"]);
 const new360Set = new Set(riders.filter(r=>r.total>=360 && !prev360Club.has(r.name)).map(r=>r.name));
-
+ 
 function tierOf(r){
   if(r.total>=RAJA_TARGET) return 'raja';
   if(r.total>=CLUB_TARGET) return 'club';
@@ -292,13 +292,13 @@ function tierOf(r){
   if(r.total>0) return 'progress';
   return 'start';
 }
-
+ 
 // ---- Days remaining ----
 const challengeEnd = new Date('2026-06-30');
 const today = new Date();
 const daysLeft = Math.max(0, Math.ceil((challengeEnd - today) / 86400000));
 document.getElementById('daysLeft').textContent = daysLeft;
-
+ 
 // ---- Group progress bar ----
 const GROUP_TARGET = riders.length * 360; // 42 × 360 = 15,120 km
 const gpPct = Math.min(100, Math.round(totalKm / GROUP_TARGET * 100));
@@ -309,7 +309,7 @@ document.getElementById('gpCard').innerHTML = `
   </div>
   <div class="gp-track"><div class="gp-fill" style="width:${gpPct}%"></div></div>
   <div class="gp-sub"><span>0 km</span><span>${fmt(GROUP_TARGET / 2)} km halfway</span><span>${fmt(GROUP_TARGET)} km goal</span></div>`;
-
+ 
 // ---- Filter tabs ----
 let activeFilter = 'all';
 const filters = [
@@ -333,14 +333,14 @@ document.getElementById('heroStats').innerHTML = `
   <div class="hero-stat"><div class="ic">🎯</div><div class="n">${clubMembers.length}</div><div class="l">360 Club</div></div>
   <div class="hero-stat"><div class="ic">🛣️</div><div class="n">${fmt(totalKm)}</div><div class="l">Total KM</div></div>
   <div class="hero-stat"><div class="ic">👑</div><div class="n">${rajaMembers.length}</div><div class="l">Monsoon Raja</div></div>`;
-
+ 
 // ---- Stat cards ----
 document.getElementById('statCards').innerHTML = `
   <div class="stat-card"><div class="ic-box ic-riders">👥</div><div><div class="big">${totalRiders}</div><div class="lbl">Riders</div></div></div>
   <div class="stat-card"><div class="ic-box ic-club">🎯</div><div><div class="big">${clubMembers.length}</div><div class="lbl">360 Club</div></div></div>
   <div class="stat-card"><div class="ic-box ic-km">🛣️</div><div><div class="big">${fmt(totalKm)}</div><div class="lbl">Total KM</div></div></div>
   <div class="stat-card"><div class="ic-box ic-raja">👑</div><div><div class="big">${rajaMembers.length}</div><div class="lbl">Monsoon Raja</div></div></div>`;
-
+ 
 // ---- Banner ----
 let bannerHtml = `
   <div class="banner-item"><div class="banner-ic">🏆</div><div><h4>${clubMembers.length} riders have conquered the 360 Club!</h4><p>Who will be next?</p></div></div>`;
@@ -354,30 +354,30 @@ if(brinkTop5.length>0){
 }
 bannerHtml += `<div class="banner-item"><div class="banner-ic">🚴</div><div><h4>Keep pushing, keep riding, keep inspiring!</h4><p>Every km counts! 💚</p></div></div>`;
 document.getElementById('bannerInner').innerHTML = bannerHtml;
-
+ 
 // ---- Sidebar lists ----
 document.getElementById('moversList').innerHTML = weeklyTop5.map((r,i)=>`
   <div class="mini-row"><div class="mini-badge">${i+1}</div><div class="mini-name">${r.name}</div><div class="mini-val">+${fmt(r.thisWeek)} km</div></div>`).join('');
-
+ 
 document.getElementById('brinkList').innerHTML = brinkTop5.map((r,i)=>`
   <div class="mini-row"><div class="mini-badge">${i+1}</div><div class="mini-name">${r.name}</div><div class="mini-val">${fmt(r.to360)} km</div></div>`).join('');
-
+ 
 document.getElementById('fameList').innerHTML = fameTop5.map((r,i)=>`
   <div class="mini-row"><div class="mini-badge">${i+1}</div><div class="mini-name">${r.name}</div></div>`).join('');
-
+ 
 // ---- Main rider list ----
 function renderList(){
   const q = document.getElementById('searchInput').value.trim().toLowerCase();
   const filterFn = filters.find(f=>f.id===activeFilter).fn;
   const filtered = riders.filter(r=>r.name.toLowerCase().includes(q) && filterFn(r));
   document.getElementById('emptyMsg').style.display = filtered.length ? 'none' : 'block';
-
+ 
   document.getElementById('riderList').innerHTML = filtered.map(r=>{
     const tier = tierOf(r);
     const pct = Math.min(100, Math.round(r.total/RAJA_TARGET*100));
     const rankClass = r.rank<=3 ? `rank-${r.rank}` : '';
     let statusLine, badgesHtml = '';
-
+ 
     if(tier==='raja'){
       statusLine = 'Monsoon Raja Achieved! 🎉';
       badgesHtml = `<span class="badge raja">👑 Monsoon Raja</span><span class="badge club">🏆 360 Club</span>`;
@@ -391,9 +391,9 @@ function renderList(){
       statusLine = `${fmt(r.toRaja)} km to Monsoon Raja`;
       badgesHtml = `<span class="badge target">🎯 ${fmt(r.to360)} km to 360 Club</span>`;
     }
-
+ 
     const weekLine = r.thisWeek>0 ? `✓ +${fmt(r.thisWeek)} km this week` : `– no km logged this week`;
-
+ 
     return `
     <div class="rider-card tier-${tier}">
       <div class="rank-badge ${rankClass}">${r.rank}</div>
@@ -415,3 +415,4 @@ renderList();
 </script>
 </body>
 </html>
+ 
