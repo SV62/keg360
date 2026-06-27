@@ -78,8 +78,11 @@ body{font-family:'Inter',sans-serif;background:var(--slate-50);margin:0;color:va
 .alert-strip{
   background:linear-gradient(90deg,#7c2d12,#dc2626,#f97316,#dc2626,#7c2d12);
   background-size:300% 100%;animation:scrollBg 5s linear infinite;
-  color:#fff;padding:8px 0;font-size:12.5px;font-weight:800;letter-spacing:.2px;
-  overflow:hidden;white-space:nowrap
+  color:#fff;padding:4px 0;font-size:9.5px;font-weight:700;letter-spacing:.1px;
+  overflow:hidden;white-space:nowrap;line-height:1.4
+}
+@media(min-width:640px){
+  .alert-strip{font-size:12.5px;font-weight:800;padding:8px 0}
 }
 @keyframes scrollBg{0%{background-position:0% 50%}100%{background-position:100% 50%}}
 .alert-inner{display:inline-block;animation:marquee 60s linear infinite;padding-left:100%}
