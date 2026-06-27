@@ -14,293 +14,233 @@
   --red-600:#dc2626;--red-500:#ef4444;--red-50:#fef2f2;--red-100:#fee2e2;
   --slate-400:#94a3b8;--slate-200:#e2e8f0;--slate-50:#f8fafc;
   --purple-600:#7c3aed;--purple-500:#8b5cf6;
-  --ink:#0f172a;--muted:#64748b;--line:#e5e7eb;
-  --radius:16px;--shadow:0 2px 10px rgba(15,23,42,.07);
+  --ink:#0f172a;--muted:#64748b;
+  --radius:14px;--shadow:0 2px 10px rgba(15,23,42,.07);
 }
-*{box-sizing:border-box}
-body{font-family:'Inter',Arial,sans-serif;background:var(--slate-50);margin:0;color:var(--ink)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:'Inter',sans-serif;background:var(--slate-50);margin:0;color:var(--ink);font-size:14px}
 
-/* ========== COUNTDOWN HERO ========== */
+/* ── HERO ── */
 .hero{
-  background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#15803d 100%);
-  color:#fff;padding:0;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#0f172a 0%,#1e3a5f 55%,#14532d 100%);
+  color:#fff;position:relative;overflow:hidden;
 }
-.hero-glow{
-  position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(34,197,94,.18),transparent),
-             radial-gradient(ellipse 40% 60% at 10% 80%,rgba(245,158,11,.12),transparent);
-}
-.hero-inner{position:relative;z-index:2;padding:28px 28px 22px;display:flex;flex-direction:column;gap:16px}
-.hero-top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.hero-icon{width:58px;height:58px;border-radius:16px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;border:1px solid rgba(255,255,255,.15)}
-.hero-title{font-size:26px;font-weight:900;margin:0;letter-spacing:-.5px}
-.hero-sub{display:flex;align-items:center;gap:10px;margin-top:5px;flex-wrap:wrap}
-.hero-sub p{margin:0;font-size:13px;opacity:.85}
-.live-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);padding:3px 11px;border-radius:999px;font-size:12px;font-weight:700;border:1px solid rgba(255,255,255,.2)}
-.live-dot{width:7px;height:7px;border-radius:50%;background:#86efac;box-shadow:0 0 0 0 rgba(134,239,172,.7);animation:pulse 1.8s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(134,239,172,.55)}70%{box-shadow:0 0 0 8px rgba(134,239,172,0)}100%{box-shadow:0 0 0 0 rgba(134,239,172,0)}}
+.hero-glow{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 90% at 90% 40%,rgba(34,197,94,.15),transparent),
+             radial-gradient(ellipse 50% 60% at 5% 90%,rgba(245,158,11,.1),transparent)}
 
-/* ========== COUNTDOWN TICKER ========== */
+/* mobile layout */
+.hero-inner{position:relative;z-index:2;padding:20px 16px 16px;display:flex;flex-direction:column;gap:14px}
+.hero-title-row{display:flex;align-items:center;gap:12px}
+.hero-icon{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;border:1px solid rgba(255,255,255,.15)}
+.hero-title{font-size:20px;font-weight:900;margin:0;letter-spacing:-.3px;line-height:1.2}
+.hero-sub{display:flex;align-items:center;gap:8px;margin-top:3px;flex-wrap:wrap}
+.hero-sub p{margin:0;font-size:12px;opacity:.82}
+.live-pill{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.15);padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:700;border:1px solid rgba(255,255,255,.2)}
+.live-dot{width:6px;height:6px;border-radius:50%;background:#86efac;animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(134,239,172,.6)}70%{box-shadow:0 0 0 7px rgba(134,239,172,0)}100%{box-shadow:0 0 0 0 rgba(134,239,172,0)}}
+
+/* 2×2 stat grid on mobile */
+.hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.hero-stat{background:rgba(255,255,255,.1);border-radius:11px;padding:10px 12px;display:flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.12)}
+.hero-stat .ic{font-size:18px;flex-shrink:0}
+.hero-stat .n{font-size:18px;font-weight:900;line-height:1}
+.hero-stat .l{font-size:10px;opacity:.78;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-top:1px}
+
+/* ── COUNTDOWN ── */
 .countdown-bar{
-  background:linear-gradient(90deg,rgba(239,68,68,.25),rgba(245,158,11,.2),rgba(239,68,68,.25));
-  border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.08);
-  padding:10px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  position:relative;z-index:2;
+  background:rgba(0,0,0,.3);backdrop-filter:blur(4px);
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap
 }
-.countdown-label{font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;opacity:.8;color:#fca5a5}
-.countdown-units{display:flex;gap:12px;align-items:center}
-.cu{background:rgba(255,255,255,.1);border-radius:10px;padding:6px 14px;text-align:center;min-width:60px;border:1px solid rgba(255,255,255,.12)}
-.cu .n{font-size:22px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
-.cu .l{font-size:9.5px;font-weight:700;opacity:.7;letter-spacing:.6px;text-transform:uppercase;margin-top:1px}
-.cu-sep{font-size:20px;font-weight:900;opacity:.5}
-.countdown-msg{font-size:12.5px;font-weight:700;color:#fde68a;display:flex;align-items:center;gap:6px}
+.countdown-label{font-size:11px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#fca5a5;flex-shrink:0}
+.countdown-units{display:flex;gap:6px;align-items:center}
+.cu{background:rgba(255,255,255,.12);border-radius:8px;padding:6px 8px;text-align:center;min-width:46px;border:1px solid rgba(255,255,255,.1)}
+.cu .n{font-size:18px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums;color:#fff}
+.cu .l{font-size:8px;font-weight:700;opacity:.7;letter-spacing:.5px;text-transform:uppercase;margin-top:1px;color:#fff}
+.cu-sep{font-size:18px;font-weight:900;opacity:.4;color:#fff}
 
-.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%}
-.hero-stat{background:rgba(255,255,255,.1);border-radius:12px;padding:9px 10px;text-align:center;border:1px solid rgba(255,255,255,.12)}
-.hero-stat .ic{font-size:14px}
-.hero-stat .n{font-size:17px;font-weight:900;line-height:1.3}
-.hero-stat .l{font-size:9.5px;opacity:.8;font-weight:700;text-transform:uppercase;letter-spacing:.4px}
-
-@media(min-width:641px){
-  .hero-inner{flex-direction:row;align-items:center;justify-content:space-between;padding:28px 28px 22px}
-  .hero-top{flex:1}
-  .hero-stats{width:340px;flex-shrink:0;grid-template-columns:repeat(4,1fr)}
+/* desktop hero overrides */
+@media(min-width:640px){
+  .hero-inner{flex-direction:row;align-items:center;justify-content:space-between;padding:28px 28px 24px;gap:24px}
+  .hero-left{flex:1}
+  .hero-title{font-size:26px}
+  .hero-sub p{font-size:13px}
+  .hero-stats{grid-template-columns:repeat(4,1fr);width:360px;flex-shrink:0}
+  .hero-stat .n{font-size:20px}
+  .countdown-bar{padding:10px 28px}
+  .cu{min-width:54px;padding:7px 10px}
+  .cu .n{font-size:21px}
 }
 
-/* ========== FINAL-DAYS ALERT BANNER ========== */
+/* ── ALERT MARQUEE ── */
 .alert-strip{
   background:linear-gradient(90deg,#7c2d12,#dc2626,#f97316,#dc2626,#7c2d12);
-  background-size:300% 100%;
-  animation:scrollBg 4s linear infinite;
-  color:#fff;padding:9px 0;font-size:13px;font-weight:800;letter-spacing:.3px;
-  overflow:hidden;white-space:nowrap;
+  background-size:300% 100%;animation:scrollBg 5s linear infinite;
+  color:#fff;padding:8px 0;font-size:12.5px;font-weight:800;letter-spacing:.2px;
+  overflow:hidden;white-space:nowrap
 }
 @keyframes scrollBg{0%{background-position:0% 50%}100%{background-position:100% 50%}}
-.alert-inner{display:inline-block;animation:marquee 55s linear infinite;padding-left:100%}
+.alert-inner{display:inline-block;animation:marquee 60s linear infinite;padding-left:100%}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
-.alert-strip span{margin:0 18px}
+.alert-strip span{margin:0 16px}
 
-/* ========== INFO BANNER ========== */
-.banner{background:linear-gradient(135deg,var(--amber-50),#fff7e0);border-bottom:1px solid #fde68a}
-.banner-inner{max-width:1280px;margin:0 auto;padding:16px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+/* ── INFO CARDS ── */
+.banner{background:linear-gradient(135deg,var(--amber-50),#fffbeb);border-bottom:1px solid #fde68a}
+.banner-inner{padding:14px 16px;display:flex;flex-direction:column;gap:12px}
 .banner-item{display:flex;align-items:flex-start;gap:10px}
-.banner-ic{font-size:24px;flex-shrink:0;line-height:1}
-.banner-item h4{margin:0;font-size:13.5px;font-weight:700;color:var(--ink)}
-.banner-item p{margin:2px 0 0;font-size:12px;color:var(--muted)}
+.banner-ic{font-size:22px;flex-shrink:0;line-height:1.2}
+.banner-item h4{margin:0;font-size:13px;font-weight:700;color:var(--ink)}
+.banner-item p{margin:2px 0 0;font-size:11.5px;color:var(--muted)}
+@media(min-width:640px){
+  .banner-inner{flex-direction:row;flex-wrap:wrap;padding:16px 24px;gap:16px}
+  .banner-item{flex:1;min-width:200px}
+}
 
-/* ========== STAT CARDS ========== */
-.stats{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;padding:18px 24px 6px}
-.stat-card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;display:flex;align-items:center;gap:12px}
-.stat-card .ic-box{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.stat-card .big{font-size:26px;font-weight:900;line-height:1.15}
-.stat-card .lbl{font-size:12px;color:var(--muted);font-weight:600}
+/* ── STAT CARDS ── */
+.stats{padding:14px 16px 4px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.stat-card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:14px;display:flex;align-items:center;gap:10px}
+.stat-card .ic-box{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.stat-card .big{font-size:22px;font-weight:900;line-height:1.15}
+.stat-card .lbl{font-size:11px;color:var(--muted);font-weight:600}
 .ic-riders{background:var(--green-100);color:var(--green-700)}
 .ic-club{background:var(--orange-100);color:var(--orange-500)}
 .ic-km{background:#dbeafe;color:#2563eb}
 .ic-raja{background:#ede9fe;color:var(--purple-600)}
+@media(min-width:640px){
+  .stats{padding:18px 24px 6px;grid-template-columns:repeat(4,1fr);gap:14px}
+  .stat-card .big{font-size:26px}
+  .stat-card .ic-box{width:44px;height:44px;font-size:20px}
+}
 
-/* ========== GROUP PROGRESS ========== */
-.group-progress{max-width:1280px;margin:0 auto;padding:4px 24px 0}
-.gp-card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 22px}
-.gp-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;gap:10px;flex-wrap:wrap}
-.gp-title{font-size:14px;font-weight:800}
-.gp-nums{font-size:13px;color:var(--muted);font-weight:600}
-.gp-track{height:14px;border-radius:99px;background:#e5e7eb;overflow:hidden}
+/* ── GROUP PROGRESS ── */
+.group-progress{padding:4px 16px 0}
+.gp-card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
+.gp-head{display:flex;flex-direction:column;gap:2px;margin-bottom:10px}
+.gp-title{font-size:13px;font-weight:800}
+.gp-nums{font-size:12px;color:var(--muted);font-weight:600}
+.gp-track{height:12px;border-radius:99px;background:#e5e7eb;overflow:hidden}
 .gp-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--green-500),var(--green-700));position:relative}
-.gp-fill::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);animation:shimmer 2s infinite}
+.gp-fill::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);animation:shimmer 2s infinite}
 @keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
-.gp-sub{display:flex;justify-content:space-between;margin-top:6px}
-.gp-sub span{font-size:11px;color:var(--muted);font-weight:600}
+.gp-sub{display:flex;justify-content:space-between;margin-top:5px}
+.gp-sub span{font-size:10.5px;color:var(--muted);font-weight:600}
+@media(min-width:640px){
+  .group-progress{padding:4px 24px 0}
+  .gp-card{padding:18px 22px}
+  .gp-head{flex-direction:row;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+  .gp-title{font-size:14px}
+  .gp-nums{font-size:13px}
+}
 
-/* ========== LAYOUT ========== */
-.layout{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:300px 1fr;gap:18px;padding:14px 24px 40px;align-items:start}
-@media(max-width:880px){.layout{grid-template-columns:1fr}}
+/* ── LAYOUT ── */
+.layout{padding:12px 16px 40px;display:flex;flex-direction:column;gap:14px}
+@media(min-width:900px){
+  .layout{display:grid;grid-template-columns:300px 1fr;gap:18px;padding:14px 24px 40px;align-items:start}
+}
 
-.panel{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
-.panel+.panel{margin-top:14px}
+.panel{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:14px}
+.panel+.panel{margin-top:12px}
 .panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.panel-head h3{margin:0;font-size:14px;font-weight:800;display:flex;align-items:center;gap:6px}
-.panel-head a{font-size:12px;color:var(--green-600);font-weight:700;text-decoration:none;cursor:pointer}
+.panel-head h3{margin:0;font-size:13.5px;font-weight:800;display:flex;align-items:center;gap:6px}
+.panel-head a{font-size:12px;color:var(--green-600);font-weight:700;text-decoration:none}
 
 .mini-row{display:flex;align-items:center;gap:10px;padding:7px 2px;border-bottom:1px solid #f1f5f9}
 .mini-row:last-child{border-bottom:none}
 .mini-badge{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;color:#fff}
 .mini-name{flex:1;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.mini-val{font-size:12.5px;font-weight:700;flex-shrink:0}
+.mini-val{font-size:12px;font-weight:700;flex-shrink:0}
 .movers .mini-badge{background:var(--green-600)}
 .movers .mini-val{color:#2563eb}
 .brink .mini-badge{background:var(--orange-500)}
 .brink .mini-val{color:var(--red-500)}
 .fame .mini-badge{background:var(--amber-500)}
 
-/* ========== SEARCH + LEGEND ========== */
-.toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px}
-.search-box{flex:1;min-width:220px;position:relative}
-.search-box input{width:100%;padding:11px 14px 11px 38px;border-radius:12px;border:1px solid var(--slate-200);font-size:13.5px;font-family:inherit;background:#fff}
-.search-box input:focus{outline:2px solid var(--green-500);outline-offset:-1px}
-.search-box::before{content:"🔍";position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:13px;opacity:.6}
-.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);font-weight:600}
-.legend span{display:inline-flex;align-items:center;gap:5px}
-.dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+/* ── WEEK LABEL ── */
+.week-label{font-size:10.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;padding:3px 8px;background:var(--slate-50);border-radius:6px;display:inline-block}
 
-/* ========== FILTER TABS ========== */
-.filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-.ftab{padding:7px 14px;border-radius:10px;border:1.5px solid var(--slate-200);background:#fff;font-size:12.5px;font-weight:700;color:var(--muted);cursor:pointer;transition:all .15s;font-family:inherit;white-space:nowrap}
-.ftab:hover{border-color:var(--green-500);color:var(--green-600)}
+/* ── TOOLBAR ── */
+.toolbar{margin-bottom:12px}
+.search-box{position:relative;width:100%}
+.search-box input{width:100%;padding:11px 14px 11px 38px;border-radius:11px;border:1px solid var(--slate-200);font-size:14px;font-family:inherit;background:#fff;-webkit-appearance:none}
+.search-box input:focus{outline:2px solid var(--green-500);outline-offset:-1px}
+.search-box::before{content:"🔍";position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:13px;opacity:.55;pointer-events:none}
+
+/* ── FILTER TABS ── */
+.filter-tabs{display:flex;gap:7px;margin-bottom:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px}
+.filter-tabs::-webkit-scrollbar{display:none}
+.ftab{flex-shrink:0;padding:7px 12px;border-radius:9px;border:1.5px solid var(--slate-200);background:#fff;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;font-family:inherit;white-space:nowrap;transition:all .15s}
 .ftab.active{background:var(--green-600);border-color:var(--green-600);color:#fff}
-.ftab-count{display:inline-block;border-radius:99px;padding:0 6px;margin-left:4px;font-size:11px;background:rgba(255,255,255,.25)}
+.ftab-count{display:inline-block;border-radius:99px;padding:0 5px;margin-left:3px;font-size:10.5px;background:rgba(255,255,255,.25)}
 .ftab:not(.active) .ftab-count{background:var(--slate-200);color:var(--muted)}
 
-/* ========== RIDER CARDS ========== */
-#riderList{display:flex;flex-direction:column;gap:10px}
-.rider-card{border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:14px;border:1px solid transparent;position:relative;overflow:hidden}
-.rank-badge{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;flex-shrink:0;background:#fff;color:var(--muted);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+/* ── RIDER CARDS ── */
+#riderList{display:flex;flex-direction:column;gap:9px}
+.rider-card{border-radius:12px;padding:12px 14px;border:1px solid transparent}
+.rider-card-top{display:flex;align-items:flex-start;gap:10px}
+.rank-badge{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;flex-shrink:0;background:#fff;color:var(--muted);box-shadow:0 1px 3px rgba(0,0,0,.1)}
 .rank-1{background:linear-gradient(135deg,#fde68a,#f59e0b);color:#7c2d12}
 .rank-2{background:linear-gradient(135deg,#e5e7eb,#9ca3af);color:#1f2937}
 .rank-3{background:linear-gradient(135deg,#fbcfe8,#fb923c);color:#7c2d12}
 
 .rider-main{flex:1;min-width:0}
-.rider-name{font-size:15px;font-weight:700;margin:0 0 3px}
-.rider-week{font-size:12px;color:#2563eb;font-weight:600;margin:0 0 5px}
-.badges{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.badge{font-size:11.5px;font-weight:700;padding:2px 0}
+.rider-name{font-size:14.5px;font-weight:700;margin:0 0 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rider-week{font-size:11.5px;color:#2563eb;font-weight:600;margin:0 0 5px}
+.badges{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.badge{font-size:11px;font-weight:700}
 .badge.raja{color:var(--purple-600)}
 .badge.club{color:var(--green-600)}
 .badge.target{color:#2563eb}
-.badge.urgent{color:var(--red-600)}
 
-.rider-right{width:180px;flex-shrink:0;text-align:right}
-.rider-total{font-size:18px;font-weight:900}
-.rider-status{font-size:11.5px;font-weight:700;margin:2px 0 7px}
-.bar-track{height:7px;border-radius:99px;background:#e5e7eb;overflow:hidden}
+/* km + bar — always below on mobile */
+.rider-bottom{margin-top:10px;padding-top:9px;border-top:1px solid rgba(0,0,0,.06);display:flex;align-items:center;gap:12px}
+.rider-total{font-size:17px;font-weight:900;flex-shrink:0}
+.rider-right-text{flex:1}
+.rider-status{font-size:11px;font-weight:700;margin:0 0 5px}
+.bar-track{height:6px;border-radius:99px;background:#e5e7eb;overflow:hidden}
 .bar-fill{height:100%;border-radius:99px}
-.bar-pct{font-size:10.5px;color:var(--muted);font-weight:700;margin-top:3px;text-align:right}
+.bar-pct{font-size:10px;color:var(--muted);font-weight:700;margin-top:2px;text-align:right}
 
 .tier-raja{background:linear-gradient(135deg,#f5f3ff,#ecfdf5);border-color:#c4b5fd}
 .tier-club{background:var(--green-50);border-color:#bbf7d0}
 .tier-brink{background:var(--orange-50);border-color:var(--orange-100)}
 .tier-progress{background:var(--red-50);border-color:var(--red-100)}
 .tier-start{background:var(--slate-50);border-color:var(--slate-200)}
-
 .tier-raja .rider-status{color:var(--purple-600)}
 .tier-club .rider-status{color:var(--green-700)}
 .tier-brink .rider-status{color:var(--orange-500)}
 .tier-progress .rider-status{color:var(--red-500)}
 .tier-start .rider-status{color:var(--slate-400)}
-
 .fill-raja{background:linear-gradient(90deg,var(--green-600),var(--purple-600))}
 .fill-club{background:linear-gradient(90deg,var(--green-500),var(--green-700))}
 .fill-brink{background:linear-gradient(90deg,var(--amber-400),var(--orange-500))}
 .fill-progress{background:linear-gradient(90deg,#fca5a5,var(--red-500))}
 .fill-start{background:var(--slate-400)}
 
-/* ========== SPECIAL BADGES ========== */
-.badge.new360{background:linear-gradient(135deg,var(--green-500),var(--green-700));color:#fff;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:800;animation:flashIn .4s ease;white-space:nowrap}
-.badge.soclose{background:linear-gradient(135deg,#f97316,#dc2626);color:#fff;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:800;animation:flashIn .4s ease;white-space:nowrap}
-.badge.raja-close{background:linear-gradient(135deg,var(--purple-500),#7c3aed);color:#fff;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:800;white-space:nowrap}
-@keyframes flashIn{from{transform:scale(1.2);opacity:0}to{transform:scale(1);opacity:1}}
-
+.badge.new360{background:linear-gradient(135deg,var(--green-500),var(--green-700));color:#fff;border-radius:5px;padding:2px 7px;font-size:10.5px;font-weight:800;white-space:nowrap}
+.badge.soclose{background:linear-gradient(135deg,#f97316,#dc2626);color:#fff;border-radius:5px;padding:2px 7px;font-size:10.5px;font-weight:800;white-space:nowrap}
+.badge.raja-close{background:linear-gradient(135deg,var(--purple-500),#7c3aed);color:#fff;border-radius:5px;padding:2px 7px;font-size:10.5px;font-weight:800;white-space:nowrap}
 .yet-pill{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:var(--slate-400);background:#f1f5f9;border-radius:5px;padding:2px 7px}
-
-/* ========== WEEK LABEL ========== */
-.week-label{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;padding:4px 8px;background:var(--slate-50);border-radius:7px;display:inline-block}
-
-/* ========== STREAK STREAK ========== */
-.no-w3-pill{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:700;color:#9a3412;background:#fff7ed;border-radius:5px;padding:2px 7px;border:1px solid #fed7aa}
+.no-w3-pill{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:700;color:#9a3412;background:#fff7ed;border-radius:5px;padding:2px 6px;border:1px solid #fed7aa}
 
 .empty-msg{display:none;text-align:center;color:var(--muted);padding:40px;font-weight:600}
-
-footer{text-align:center;color:var(--muted);font-size:11.5px;padding:10px 0 28px}
-
-/* ===== MOBILE ===== */
-@media(max-width:640px){
-  /* Hero */
-  .hero-inner{flex-direction:column;align-items:flex-start;padding:16px 16px 14px;gap:12px}
-  .hero-title{font-size:19px}
-  .hero-icon{width:46px;height:46px;font-size:22px}
-  .hero-sub p{font-size:12px}
-  .hero-stats{grid-template-columns:repeat(4,1fr);width:100%;gap:6px}
-  .hero-stat{padding:7px 4px}
-  .hero-stat .n{font-size:15px}
-  .hero-stat .l{font-size:8.5px}
-
-  /* Countdown */
-  .countdown-bar{padding:8px 16px;gap:8px;justify-content:center}
-  .countdown-label{font-size:10px;letter-spacing:.4px}
-  .countdown-units{gap:6px}
-  .cu{min-width:44px;padding:5px 6px;border-radius:8px}
-  .cu .n{font-size:17px}
-  .cu .l{font-size:8px}
-  .cu-sep{font-size:16px}
-  .countdown-msg{display:none}
-
-  /* Alert strip */
-  .alert-strip{font-size:12px;padding:8px 0}
-
-  /* Banner */
-  .banner-inner{padding:12px 16px;gap:12px;grid-template-columns:1fr}
-
-  /* Stat cards */
-  .stats{padding:12px 16px 4px;grid-template-columns:repeat(2,1fr);gap:10px}
-  .stat-card{padding:12px 14px}
-  .stat-card .big{font-size:22px}
-  .stat-card .ic-box{width:38px;height:38px;font-size:18px}
-
-  /* Group progress */
-  .group-progress{padding:4px 16px 0}
-  .gp-title{font-size:12.5px}
-  .gp-nums{font-size:11.5px}
-
-  /* Layout */
-  .layout{padding:12px 16px 32px;gap:14px}
-
-  /* Filter tabs — horizontal scroll */
-  .filter-tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;gap:6px;scrollbar-width:none}
-  .filter-tabs::-webkit-scrollbar{display:none}
-  .ftab{flex-shrink:0;padding:6px 11px;font-size:12px}
-
-  /* Toolbar */
-  .toolbar{flex-direction:column;align-items:stretch;gap:10px}
-  .search-box{min-width:0}
-  .legend{display:none}
-
-  /* Rider cards — stack name/km vertically, full width bar */
-  .rider-card{padding:12px 12px;gap:10px;flex-wrap:wrap}
-  .rank-badge{width:30px;height:30px;font-size:12px;border-radius:8px;align-self:flex-start}
-  .rider-main{min-width:0;flex:1}
-  .rider-name{font-size:14px}
-  .rider-week{font-size:11px}
-  .badges{gap:5px}
-  .badge{font-size:10.5px}
-  .badge.new360,.badge.soclose,.badge.raja-close{font-size:10px;padding:2px 6px}
-  .rider-right{width:100%;text-align:left;border-top:1px solid rgba(0,0,0,.06);padding-top:8px;margin-top:2px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-  .rider-total{font-size:16px;font-weight:900}
-  .rider-status{font-size:11px;margin:0;flex:1}
-  .bar-track{display:none}
-  .bar-pct{display:none}
-
-  /* Sidebar panels (they're stacked already, just tighten) */
-  .panel{padding:14px}
-  .mini-name{font-size:12.5px}
-  .mini-val{font-size:12px}
-
-  footer{font-size:11px;padding:8px 16px 24px}
-}
+footer{text-align:center;color:var(--muted);font-size:11px;padding:8px 16px 28px}
 </style>
 </head>
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-glow"></div>
   <div class="hero-inner">
-    <div class="hero-top">
-      <div style="display:flex;align-items:center;gap:16px">
+    <div class="hero-left">
+      <div class="hero-title-row">
         <div class="hero-icon">🚴</div>
         <div>
           <h1 class="hero-title">KEG Challenge 360</h1>
           <div class="hero-sub">
             <p>June Challenge · Final Stretch</p>
-            <span class="live-pill"><span class="live-dot"></span>Live Standings</span>
+            <span class="live-pill"><span class="live-dot"></span>Live</span>
           </div>
         </div>
       </div>
@@ -308,57 +248,49 @@ footer{text-align:center;color:var(--muted);font-size:11.5px;padding:10px 0 28px
     <div class="hero-stats" id="heroStats"></div>
   </div>
   <div class="countdown-bar">
-    <span class="countdown-label">⏰ Challenge Ends June 30</span>
+    <span class="countdown-label">⏰ Ends June 30</span>
     <div class="countdown-units" id="countdownUnits"></div>
-    <div class="countdown-msg" id="countdownMsg"></div>
   </div>
 </div>
 
-<!-- FINAL ALERT -->
 <div class="alert-strip">
   <div class="alert-inner">
     <span>🏁 FINAL 2 DAYS</span>
     <span>·</span>
-    <span>🔥 Noby Thomas: 1,997.9 km — nearly 5× the challenge target. Absolute legend.</span>
+    <span>🔥 Noby Thomas: 1,997.9 km — nearly 5× the target. Absolute legend.</span>
     <span>·</span>
-    <span>⚡ Philip Kuruvilla: 359.8 km — needs just 0.2 km. That's one lap around the block!</span>
+    <span>⚡ Philip Kuruvilla: 359.8 km — needs just 0.2 km. One lap around the block!</span>
     <span>·</span>
     <span>💨 Sebin Vettukattil: 24.9 km to go — one solid evening ride can do this!</span>
     <span>·</span>
-    <span>🌧️ Varghese: started Week 1 with 0 km, then dropped 259 km in Week 3 alone. Beast mode.</span>
+    <span>🌊 Varghese: 0 km in Week 1, then 259 km in Week 3 alone. Beast mode.</span>
     <span>·</span>
-    <span>😴 Sooraj Ravi: 859 km total but zero in Week 3 — wake up, the Raja crown is 141 km away!</span>
+    <span>😴 Sooraj Ravi: 859 km total but zero in Week 3 — Raja crown is 141 km away!</span>
     <span>·</span>
-    <span>📈 Kiran Kurian: 177.8 km in Week 3 alone — the strongest finish in the group!</span>
+    <span>📈 Kiran Kurian: 177.8 km in Week 3 — the strongest finish in the group!</span>
     <span>·</span>
-    <span>🎯 Deepu Peter: 29.7 km from the 360 Club — two good morning rides and it's done.</span>
+    <span>🎯 Deepu Peter: 29.7 km from the 360 Club — two morning rides and it's done.</span>
     <span>·</span>
     <span>👑 Jose Prasanth: 109 km from Monsoon Raja — can he find it in 2 days?</span>
     <span>·</span>
-    <span>🚀 Sandeep Palakkaran: 0 km in Week 1, then exploded with 530 km — the comeback king!</span>
+    <span>🚀 Sandeep Palakkaran: 0 km in Week 1, then exploded to 530 km — comeback king!</span>
     <span>·</span>
-    <span>⏳ 6 riders yet to log a single km — it's never too late to start. Go!</span>
+    <span>⏳ 6 riders yet to log a single km — it's never too late. Go!</span>
     <span>·</span>
-    <span>💪 Nitin Thomas: 160.6 km in Week 3 — best week yet. Keep that momentum for 2 more days!</span>
+    <span>💪 Nitin Thomas: 160.6 km in Week 3 — best week yet. Keep that momentum!</span>
     <span>·</span>
-    <span>🏁 FINAL 2 DAYS — RIDE LIKE THERE'S NO TOMORROW!</span>
+    <span>🏁 RIDE LIKE THERE'S NO TOMORROW!</span>
     <span>·</span>
-    <span>🔥 Noby Thomas: 1,997.9 km — nearly 5× the challenge target. Absolute legend.</span>
+    <span>🔥 Noby Thomas: 1,997.9 km — nearly 5× the target. Absolute legend.</span>
     <span>·</span>
-    <span>⚡ Philip Kuruvilla: 359.8 km — needs just 0.2 km. That's one lap around the block!</span>
+    <span>⚡ Philip Kuruvilla: 359.8 km — needs just 0.2 km. One lap around the block!</span>
   </div>
 </div>
 
-<!-- INFO BANNER -->
 <div class="banner"><div class="banner-inner" id="bannerInner"></div></div>
-
-<!-- STAT CARDS -->
 <div class="stats" id="statCards"></div>
-
-<!-- GROUP PROGRESS -->
 <div class="group-progress"><div class="gp-card" id="gpCard"></div></div>
 
-<!-- LAYOUT -->
 <div class="layout">
   <div class="sidebar">
     <div class="panel movers">
@@ -375,10 +307,9 @@ footer{text-align:center;color:var(--muted);font-size:11.5px;padding:10px 0 28px
       <div class="panel-head"><h3>🏆 360 Club Hall of Fame</h3></div>
       <div id="fameList"></div>
     </div>
-    <!-- Raja Chasers -->
     <div class="panel" style="border:1.5px solid #c4b5fd">
       <div class="panel-head"><h3>👑 Monsoon Raja Chasers</h3></div>
-      <p style="font-size:11.5px;color:var(--muted);margin:0 0 10px;font-weight:600">Within 200 km of the 1000 km crown</p>
+      <p style="font-size:11.5px;color:var(--muted);margin:0 0 10px;font-weight:600">Within striking distance of 1000 km</p>
       <div id="rajaList"></div>
     </div>
   </div>
@@ -387,14 +318,7 @@ footer{text-align:center;color:var(--muted);font-size:11.5px;padding:10px 0 28px
     <div class="panel">
       <div class="filter-tabs" id="filterTabs"></div>
       <div class="toolbar">
-        <div class="search-box"><input id="searchInput" type="text" placeholder="Search rider by name..." oninput="renderList()"></div>
-        <div class="legend">
-          <span><i class="dot" style="background:var(--purple-600)"></i>Monsoon Raja</span>
-          <span><i class="dot" style="background:var(--green-500)"></i>360 Club</span>
-          <span><i class="dot" style="background:var(--orange-500)"></i>Brink</span>
-          <span><i class="dot" style="background:var(--red-500)"></i>In Progress</span>
-          <span><i class="dot" style="background:var(--slate-400)"></i>Not Started</span>
-        </div>
+        <div class="search-box"><input id="searchInput" type="text" placeholder="Search rider…" oninput="renderList()"></div>
       </div>
       <div id="riderList"></div>
       <div class="empty-msg" id="emptyMsg">No rider matches that search.</div>
@@ -407,41 +331,33 @@ footer{text-align:center;color:var(--muted);font-size:11.5px;padding:10px 0 28px
 <script>
 const riders = [{"rank":1,"name":"Noby Thomas","w1":603.1,"w2":781.5,"w3":613.3,"total":1997.9,"to360":0,"toRaja":0},{"rank":2,"name":"Jose Prasanth","w1":222.4,"w2":400.3,"w3":268.1,"total":890.8,"to360":0,"toRaja":109.2},{"rank":3,"name":"Sooraj Ravi","w1":341.6,"w2":517.4,"w3":0.0,"total":859.0,"to360":0,"toRaja":141.0},{"rank":4,"name":"Saju Kulathumkal","w1":361.3,"w2":184.5,"w3":274.8,"total":820.6,"to360":0,"toRaja":179.4},{"rank":5,"name":"Ashith Soman","w1":105.6,"w2":307.6,"w3":193.1,"total":606.3,"to360":0,"toRaja":393.7},{"rank":6,"name":"Varghese","w1":0.0,"w2":279.8,"w3":259.0,"total":538.8,"to360":0,"toRaja":461.2},{"rank":7,"name":"Sandeep Palakkaran","w1":0.0,"w2":315.9,"w3":214.7,"total":530.6,"to360":0,"toRaja":469.4},{"rank":8,"name":"Abhijith Pattasseril","w1":201.6,"w2":207.5,"w3":90.9,"total":500.0,"to360":0,"toRaja":500.0},{"rank":9,"name":"Sunil Joseph","w1":124.1,"w2":240.5,"w3":101.7,"total":466.3,"to360":0,"toRaja":533.7},{"rank":10,"name":"Sumesh Kumar","w1":319.7,"w2":65.3,"w3":45.0,"total":430.0,"to360":0,"toRaja":570.0},{"rank":11,"name":"Kiran Kurian","w1":67.9,"w2":152.1,"w3":177.8,"total":397.8,"to360":0,"toRaja":602.2},{"rank":12,"name":"Jino Varkey","w1":182.1,"w2":163.6,"w3":36.1,"total":381.8,"to360":0,"toRaja":618.2},{"rank":13,"name":"Poly James","w1":175.3,"w2":125.7,"w3":67.9,"total":368.9,"to360":0,"toRaja":631.1},{"rank":14,"name":"Philip Kuruvilla","w1":76.8,"w2":171.4,"w3":111.6,"total":359.8,"to360":0.2,"toRaja":640.2},{"rank":15,"name":"Sebin Vettukattil","w1":152.1,"w2":155.2,"w3":27.8,"total":335.1,"to360":24.9,"toRaja":664.9},{"rank":16,"name":"Deepu Peter","w1":81.9,"w2":141.5,"w3":106.9,"total":330.3,"to360":29.7,"toRaja":669.7},{"rank":17,"name":"Nitin Thomas","w1":69.7,"w2":67.0,"w3":160.6,"total":297.3,"to360":62.7,"toRaja":702.7},{"rank":18,"name":"Abu Thomas","w1":201.8,"w2":29.0,"w3":31.5,"total":262.3,"to360":97.7,"toRaja":737.7},{"rank":19,"name":"Josy Thomas","w1":97.6,"w2":159.5,"w3":0.0,"total":257.1,"to360":102.9,"toRaja":742.9},{"rank":20,"name":"John Joseph","w1":45.8,"w2":84.7,"w3":124.1,"total":254.6,"to360":105.4,"toRaja":745.4},{"rank":21,"name":"George Kurian","w1":38.3,"w2":156.9,"w3":41.4,"total":236.6,"to360":123.4,"toRaja":763.4},{"rank":22,"name":"Amal Jose","w1":102.4,"w2":122.1,"w3":0.0,"total":224.5,"to360":135.5,"toRaja":775.5},{"rank":23,"name":"Jose Kuruvilla","w1":47.0,"w2":107.8,"w3":41.0,"total":195.8,"to360":164.2,"toRaja":804.2},{"rank":24,"name":"Jaise Johnson","w1":150.1,"w2":31.6,"w3":0.0,"total":181.7,"to360":178.3,"toRaja":818.3},{"rank":25,"name":"Arun Mathew","w1":100.3,"w2":80.1,"w3":0.0,"total":180.4,"to360":179.6,"toRaja":819.6},{"rank":26,"name":"Jittu Sebastian","w1":66.6,"w2":54.1,"w3":44.4,"total":165.1,"to360":194.9,"toRaja":834.9},{"rank":27,"name":"Arjun Suresh","w1":0.0,"w2":109.6,"w3":21.1,"total":130.7,"to360":229.3,"toRaja":869.3},{"rank":28,"name":"Prajod Sunny","w1":107.3,"w2":0.0,"w3":0.0,"total":107.3,"to360":252.7,"toRaja":892.7},{"rank":29,"name":"Saiju Michael","w1":0.0,"w2":50.1,"w3":51.8,"total":101.9,"to360":258.1,"toRaja":898.1},{"rank":30,"name":"Renju Aerosports","w1":30.0,"w2":68.5,"w3":0.0,"total":98.5,"to360":261.5,"toRaja":901.5},{"rank":31,"name":"Joseph Mathew","w1":0.0,"w2":93.5,"w3":0.0,"total":93.5,"to360":266.5,"toRaja":906.5},{"rank":32,"name":"Sr Jopin","w1":0.0,"w2":30.0,"w3":28.1,"total":58.1,"to360":301.9,"toRaja":941.9},{"rank":33,"name":"Vishnu Indrabalan","w1":50.6,"w2":0.0,"w3":0.0,"total":50.6,"to360":309.4,"toRaja":949.4},{"rank":34,"name":"Naijil Mathew","w1":0.0,"w2":0.0,"w3":29.8,"total":29.8,"to360":330.2,"toRaja":970.2},{"rank":35,"name":"Gino Marks","w1":0.0,"w2":10.6,"w3":17.9,"total":28.5,"to360":331.5,"toRaja":971.5},{"rank":36,"name":"Sethu Stephen","w1":0.0,"w2":0.0,"w3":25.6,"total":25.6,"to360":334.4,"toRaja":974.4},{"rank":37,"name":"Chandan RS","w1":0.0,"w2":0.0,"w3":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0},{"rank":38,"name":"James Varkey","w1":0.0,"w2":0.0,"w3":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0},{"rank":39,"name":"Jithu Jose","w1":0.0,"w2":0.0,"w3":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0},{"rank":40,"name":"Kannan Sasi","w1":0.0,"w2":0.0,"w3":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0},{"rank":41,"name":"Renju Joyan","w1":0.0,"w2":0.0,"w3":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0},{"rank":42,"name":"Sreehari S","w1":0.0,"w2":0.0,"w3":0.0,"total":0.0,"to360":360.0,"toRaja":1000.0}];
 
-const CLUB=360, RAJA=1000;
-const fmt = n => n.toLocaleString('en-IN',{minimumFractionDigits:1,maximumFractionDigits:1});
-
-const clubMembers = riders.filter(r=>r.total>=CLUB);
-const rajaMembers = riders.filter(r=>r.total>=RAJA);
-const totalKm = riders.reduce((s,r)=>s+r.total,0);
-const notYet = riders.filter(r=>r.total<CLUB).sort((a,b)=>a.to360-b.to360);
-const brinkTop = notYet.slice(0,6);
-const brinkSet = new Set(brinkTop.map(r=>r.name));
-const weeklyTop = [...riders].sort((a,b)=>b.w3-a.w3).slice(0,6);
-const fameTop = [...clubMembers].sort((a,b)=>b.total-a.total).slice(0,8);
-const rajaChasers = riders.filter(r=>r.total>=800&&r.total<RAJA).sort((a,b)=>a.toRaja-b.toRaja);
-
-// Riders who newly joined 360 club vs last update (June 24 data)
-const prev360 = new Set(["Noby Thomas","Sooraj Ravi","Jose Prasanth","Saju Kulathumkal","Ashith Soman","Abhijith Pattasseril","Sumesh Kumar","Sunil Joseph","Poly James","Jino Varkey"]);
-const new360Set = new Set(riders.filter(r=>r.total>=CLUB && !prev360.has(r.name)).map(r=>r.name));
+const CLUB=360,RAJA=1000;
+const fmt=n=>n.toLocaleString('en-IN',{minimumFractionDigits:1,maximumFractionDigits:1});
+const clubMembers=riders.filter(r=>r.total>=CLUB);
+const rajaMembers=riders.filter(r=>r.total>=RAJA);
+const totalKm=riders.reduce((s,r)=>s+r.total,0);
+const notYet=riders.filter(r=>r.total<CLUB).sort((a,b)=>a.to360-b.to360);
+const brinkTop=notYet.slice(0,6);
+const brinkSet=new Set(brinkTop.map(r=>r.name));
+const weeklyTop=[...riders].sort((a,b)=>b.w3-a.w3).slice(0,6);
+const fameTop=[...clubMembers].sort((a,b)=>b.total-a.total).slice(0,8);
+const rajaChasers=riders.filter(r=>r.total>=800&&r.total<RAJA).sort((a,b)=>a.toRaja-b.toRaja);
+const prev360=new Set(["Noby Thomas","Sooraj Ravi","Jose Prasanth","Saju Kulathumkal","Ashith Soman","Abhijith Pattasseril","Sumesh Kumar","Sunil Joseph","Poly James","Jino Varkey"]);
+const new360Set=new Set(riders.filter(r=>r.total>=CLUB&&!prev360.has(r.name)).map(r=>r.name));
 
 function tierOf(r){
-  if(r.total>=RAJA) return 'raja';
-  if(r.total>=CLUB) return 'club';
-  if(brinkSet.has(r.name)) return 'brink';
-  if(r.total>0) return 'progress';
-  return 'start';
+  if(r.total>=RAJA)return'raja';
+  if(r.total>=CLUB)return'club';
+  if(brinkSet.has(r.name))return'brink';
+  if(r.total>0)return'progress';
+  return'start';
 }
 
-// ===== COUNTDOWN =====
+// countdown
 function updateCountdown(){
-  const end = new Date('2026-06-30T23:59:59');
-  const now = new Date();
-  const diff = Math.max(0, end - now);
-  const d = Math.floor(diff/86400000);
-  const h = Math.floor((diff%86400000)/3600000);
-  const m = Math.floor((diff%3600000)/60000);
-  const s = Math.floor((diff%60000)/1000);
-  document.getElementById('countdownUnits').innerHTML =
+  const diff=Math.max(0,new Date('2026-06-30T23:59:59')-new Date());
+  const d=Math.floor(diff/86400000),h=Math.floor(diff%86400000/3600000),m=Math.floor(diff%3600000/60000),s=Math.floor(diff%60000/1000);
+  document.getElementById('countdownUnits').innerHTML=
     `<div class="cu"><div class="n">${d}</div><div class="l">Days</div></div>
      <span class="cu-sep">:</span>
      <div class="cu"><div class="n">${String(h).padStart(2,'0')}</div><div class="l">Hrs</div></div>
@@ -449,140 +365,119 @@ function updateCountdown(){
      <div class="cu"><div class="n">${String(m).padStart(2,'0')}</div><div class="l">Min</div></div>
      <span class="cu-sep">:</span>
      <div class="cu"><div class="n">${String(s).padStart(2,'0')}</div><div class="l">Sec</div></div>`;
-  const msgs = ["🔥 Now or never!","⚡ Clock is ticking!","🏁 Final sprint time!","💪 Keep those wheels spinning!"];
-  document.getElementById('countdownMsg').textContent = msgs[Math.floor(Date.now()/8000)%msgs.length];
 }
-updateCountdown();
-setInterval(updateCountdown,1000);
+updateCountdown();setInterval(updateCountdown,1000);
 
-// ===== HERO STATS =====
-document.getElementById('heroStats').innerHTML = `
-  <div class="hero-stat"><div class="ic">👥</div><div class="n">${riders.length}</div><div class="l">Riders</div></div>
-  <div class="hero-stat"><div class="ic">🎯</div><div class="n">${clubMembers.length}</div><div class="l">360 Club</div></div>
-  <div class="hero-stat"><div class="ic">🛣️</div><div class="n">${fmt(totalKm)}</div><div class="l">Total KM</div></div>
-  <div class="hero-stat"><div class="ic">👑</div><div class="n">${rajaMembers.length}</div><div class="l">Raja</div></div>`;
+// hero stats
+document.getElementById('heroStats').innerHTML=`
+  <div class="hero-stat"><span class="ic">👥</span><div><div class="n">${riders.length}</div><div class="l">Riders</div></div></div>
+  <div class="hero-stat"><span class="ic">🎯</span><div><div class="n">${clubMembers.length}</div><div class="l">360 Club</div></div></div>
+  <div class="hero-stat"><span class="ic">🛣️</span><div><div class="n">${fmt(totalKm)}</div><div class="l">Total KM</div></div></div>
+  <div class="hero-stat"><span class="ic">👑</span><div><div class="n">${rajaMembers.length}</div><div class="l">Raja</div></div></div>`;
 
-// ===== STAT CARDS =====
-document.getElementById('statCards').innerHTML = `
+// stat cards
+document.getElementById('statCards').innerHTML=`
   <div class="stat-card"><div class="ic-box ic-riders">👥</div><div><div class="big">${riders.length}</div><div class="lbl">Total Riders</div></div></div>
-  <div class="stat-card"><div class="ic-box ic-club">🏆</div><div><div class="big">${clubMembers.length}</div><div class="lbl">360 Club Members</div></div></div>
-  <div class="stat-card"><div class="ic-box ic-km">🛣️</div><div><div class="big">${fmt(totalKm)}</div><div class="lbl">Total KM Ridden</div></div></div>
+  <div class="stat-card"><div class="ic-box ic-club">🏆</div><div><div class="big">${clubMembers.length}</div><div class="lbl">360 Club</div></div></div>
+  <div class="stat-card"><div class="ic-box ic-km">🛣️</div><div><div class="big">${fmt(totalKm)}</div><div class="lbl">Total KM</div></div></div>
   <div class="stat-card"><div class="ic-box ic-raja">👑</div><div><div class="big">${rajaMembers.length}</div><div class="lbl">Monsoon Raja</div></div></div>`;
 
-// ===== GROUP PROGRESS =====
-const GROUP_TARGET = riders.length * CLUB;
-const gpPct = Math.min(100, (totalKm/GROUP_TARGET*100).toFixed(1));
-document.getElementById('gpCard').innerHTML = `
+// group progress
+const GROUP_TARGET=riders.length*CLUB;
+const gpPct=Math.min(100,(totalKm/GROUP_TARGET*100).toFixed(1));
+document.getElementById('gpCard').innerHTML=`
   <div class="gp-head">
-    <span class="gp-title">🚴 Group Progress · ${riders.length} Riders × 360 km Goal</span>
-    <span class="gp-nums">${fmt(totalKm)} of ${fmt(GROUP_TARGET)} km · <b>${gpPct}%</b> achieved</span>
+    <span class="gp-title">🚴 Group Progress · ${riders.length} Riders × 360 km</span>
+    <span class="gp-nums">${fmt(totalKm)} of ${fmt(GROUP_TARGET)} km · <b>${gpPct}%</b></span>
   </div>
   <div class="gp-track"><div class="gp-fill" style="width:${gpPct}%"></div></div>
   <div class="gp-sub"><span>0 km</span><span>${fmt(GROUP_TARGET/2)} halfway</span><span>${fmt(GROUP_TARGET)} goal</span></div>`;
 
-// ===== BANNER =====
-const first = [...rajaMembers].sort((a,b)=>b.total-a.total)[0];
-const closest = brinkTop[0];
-document.getElementById('bannerInner').innerHTML = `
+// banner
+const first=[...rajaMembers].sort((a,b)=>b.total-a.total)[0];
+document.getElementById('bannerInner').innerHTML=`
   <div class="banner-item"><div class="banner-ic">🏆</div><div><h4>${clubMembers.length} riders in the 360 Club!</h4><p>2 days left — who joins next?</p></div></div>
   ${first?`<div class="banner-item"><div class="banner-ic">👑</div><div><h4>${first.name} — Monsoon Raja! 🎉</h4><p>${fmt(first.total)} km — absolutely legendary</p></div></div>`:''}
   <div class="banner-item"><div class="banner-ic">⚡</div><div><h4>Philip Kuruvilla: 0.2 km away!</h4><p>That's literally a lap around the block 🔥</p></div></div>
-  <div class="banner-item"><div class="banner-ic">🚴</div><div><h4>3 days. Every km counts. Go!</h4><p>The clock never stops — neither should you.</p></div></div>`;
+  <div class="banner-item"><div class="banner-ic">🚴</div><div><h4>2 days. Every km counts. Go!</h4><p>The clock never stops — neither should you.</p></div></div>`;
 
-// ===== SIDEBAR MOVERS (Week 3) =====
-document.getElementById('moversList').innerHTML = weeklyTop.map((r,i)=>`
-  <div class="mini-row">
-    <div class="mini-badge">${i+1}</div>
-    <div class="mini-name">${r.name}</div>
-    <div class="mini-val">${r.w3>0?'+'+fmt(r.w3)+' km':'–'}</div>
-  </div>`).join('');
+// sidebar
+document.getElementById('moversList').innerHTML=weeklyTop.map((r,i)=>`
+  <div class="mini-row"><div class="mini-badge">${i+1}</div><div class="mini-name">${r.name}</div><div class="mini-val">${r.w3>0?'+'+fmt(r.w3)+' km':'–'}</div></div>`).join('');
+document.getElementById('brinkList').innerHTML=brinkTop.map((r,i)=>`
+  <div class="mini-row"><div class="mini-badge">${i+1}</div><div class="mini-name">${r.name}</div><div class="mini-val" style="color:${r.to360<30?'var(--red-600)':'var(--orange-500)'}">${fmt(r.to360)} km</div></div>`).join('');
+document.getElementById('fameList').innerHTML=fameTop.map((r,i)=>`
+  <div class="mini-row"><div class="mini-badge" style="${r.total>=RAJA?'background:var(--purple-600)':''}">${i+1}</div><div class="mini-name">${r.name}${r.total>=RAJA?' 👑':''}</div><div class="mini-val" style="color:var(--muted)">${fmt(r.total)} km</div></div>`).join('');
+document.getElementById('rajaList').innerHTML=rajaChasers.map((r,i)=>`
+  <div class="mini-row"><div class="mini-badge" style="background:var(--purple-600)">${i+1}</div><div class="mini-name">${r.name}</div><div class="mini-val" style="color:var(--purple-600)">${fmt(r.toRaja)} km left</div></div>`).join('')||'<p style="font-size:12px;color:var(--muted);margin:0">No chasers in range</p>';
 
-document.getElementById('brinkList').innerHTML = brinkTop.map((r,i)=>`
-  <div class="mini-row">
-    <div class="mini-badge">${i+1}</div>
-    <div class="mini-name">${r.name}</div>
-    <div class="mini-val" style="color:${r.to360<30?'var(--red-600)':'var(--orange-500)'}">${fmt(r.to360)} km</div>
-  </div>`).join('');
-
-document.getElementById('fameList').innerHTML = fameTop.map((r,i)=>`
-  <div class="mini-row">
-    <div class="mini-badge" style="${r.total>=RAJA?'background:var(--purple-600)':''}">${i+1}</div>
-    <div class="mini-name">${r.name}${r.total>=RAJA?' 👑':''}</div>
-    <div class="mini-val" style="color:var(--muted)">${fmt(r.total)} km</div>
-  </div>`).join('');
-
-document.getElementById('rajaList').innerHTML = rajaChasers.map((r,i)=>`
-  <div class="mini-row">
-    <div class="mini-badge" style="background:var(--purple-600)">${i+1}</div>
-    <div class="mini-name">${r.name}</div>
-    <div class="mini-val" style="color:var(--purple-600)">${fmt(r.toRaja)} km left</div>
-  </div>`).join('') || '<p style="font-size:12px;color:var(--muted);margin:0">No chasers in range</p>';
-
-// ===== FILTER TABS =====
-let activeFilter = 'all';
-const filters = [
-  {id:'all',     label:'All Riders',   fn:()=>true},
-  {id:'club',    label:'360 Club',     fn:r=>r.total>=CLUB},
-  {id:'brink',   label:'On the Brink', fn:r=>brinkSet.has(r.name)},
-  {id:'progress',label:'In Progress',  fn:r=>r.total>0&&r.total<CLUB&&!brinkSet.has(r.name)},
-  {id:'start',   label:'Yet to Start', fn:r=>r.total===0},
+// filter tabs
+let activeFilter='all';
+const filters=[
+  {id:'all',label:'All',fn:()=>true},
+  {id:'club',label:'360 Club',fn:r=>r.total>=CLUB},
+  {id:'brink',label:'On the Brink',fn:r=>brinkSet.has(r.name)},
+  {id:'progress',label:'In Progress',fn:r=>r.total>0&&r.total<CLUB&&!brinkSet.has(r.name)},
+  {id:'start',label:'Not Started',fn:r=>r.total===0},
 ];
 function buildTabs(){
-  document.getElementById('filterTabs').innerHTML = filters.map(f=>{
-    const count = riders.filter(f.fn).length;
-    return `<button class="ftab${activeFilter===f.id?' active':''}" onclick="setFilter('${f.id}')">
-      ${f.label}<span class="ftab-count">${count}</span></button>`;
+  document.getElementById('filterTabs').innerHTML=filters.map(f=>{
+    const count=riders.filter(f.fn).length;
+    return`<button class="ftab${activeFilter===f.id?' active':''}" onclick="setFilter('${f.id}')">${f.label}<span class="ftab-count">${count}</span></button>`;
   }).join('');
 }
 function setFilter(id){activeFilter=id;buildTabs();renderList();}
 buildTabs();
 
-// ===== MAIN LIST =====
+// rider list
 function renderList(){
-  const q = document.getElementById('searchInput').value.trim().toLowerCase();
-  const filterFn = filters.find(f=>f.id===activeFilter).fn;
-  const filtered = riders.filter(r=>r.name.toLowerCase().includes(q) && filterFn(r));
-  document.getElementById('emptyMsg').style.display = filtered.length?'none':'block';
+  const q=document.getElementById('searchInput').value.trim().toLowerCase();
+  const filterFn=filters.find(f=>f.id===activeFilter).fn;
+  const filtered=riders.filter(r=>r.name.toLowerCase().includes(q)&&filterFn(r));
+  document.getElementById('emptyMsg').style.display=filtered.length?'none':'block';
 
-  document.getElementById('riderList').innerHTML = filtered.map(r=>{
-    const tier = tierOf(r);
-    const pct = Math.min(100, Math.round(r.total/RAJA*100));
-    const rankClass = r.rank<=3?`rank-${r.rank}`:'';
-    let statusLine, badgesHtml='';
+  document.getElementById('riderList').innerHTML=filtered.map(r=>{
+    const tier=tierOf(r);
+    const pct=Math.min(100,Math.round(r.total/RAJA*100));
+    const rankClass=r.rank<=3?`rank-${r.rank}`:'';
+    let statusLine,badgesHtml='';
 
     if(tier==='raja'){
       statusLine='Monsoon Raja — LEGENDARY! 👑';
       badgesHtml=`<span class="badge raja">👑 Monsoon Raja</span><span class="badge club">🏆 360 Club</span>`;
-    } else if(tier==='club'){
+    }else if(tier==='club'){
       statusLine=`${fmt(r.toRaja)} km to Monsoon Raja`;
-      const rajaClose = r.toRaja<200?`<span class="badge raja-close">👑 ${fmt(r.toRaja)} km to Raja!</span>`:'';
-      badgesHtml=`<span class="badge club">🏆 360 Club</span>${new360Set.has(r.name)?'<span class="badge new360">🆕 Joined this week!</span>':''}${rajaClose}`;
-    } else if(tier==='start'){
+      const rajaClose=r.toRaja<200?`<span class="badge raja-close">👑 ${fmt(r.toRaja)} km to Raja!</span>`:'';
+      badgesHtml=`<span class="badge club">🏆 360 Club</span>${new360Set.has(r.name)?'<span class="badge new360">🆕 New this week!</span>':''}${rajaClose}`;
+    }else if(tier==='start'){
       statusLine='Yet to start — 2 days left!';
       badgesHtml=`<span class="yet-pill">⏳ Not started</span>`;
-    } else {
+    }else{
       statusLine=`${fmt(r.to360)} km to 360 Club`;
-      const urgent = r.to360<30?`<span class="badge soclose">🔥 SO CLOSE!</span>`:'';
+      const urgent=r.to360<30?`<span class="badge soclose">🔥 SO CLOSE!</span>`:'';
       badgesHtml=`<span class="badge target">🎯 ${fmt(r.to360)} km to 360</span>${urgent}`;
     }
 
-    const w3Line = r.w3>0
-      ? `✓ +${fmt(r.w3)} km this week`
-      : `<span class="no-w3-pill">⚠️ No km logged Week 3</span>`;
+    const w3Line=r.w3>0
+      ?`✓ +${fmt(r.w3)} km this week`
+      :`<span class="no-w3-pill">⚠️ No km logged Week 3</span>`;
 
-    return `
-    <div class="rider-card tier-${tier}">
-      <div class="rank-badge ${rankClass}">${r.rank}</div>
-      <div class="rider-main">
-        <p class="rider-name">${r.name}</p>
-        <p class="rider-week">${w3Line}</p>
-        <div class="badges">${badgesHtml}</div>
+    return`<div class="rider-card tier-${tier}">
+      <div class="rider-card-top">
+        <div class="rank-badge ${rankClass}">${r.rank}</div>
+        <div class="rider-main">
+          <p class="rider-name">${r.name}</p>
+          <p class="rider-week">${w3Line}</p>
+          <div class="badges">${badgesHtml}</div>
+        </div>
       </div>
-      <div class="rider-right">
+      <div class="rider-bottom">
         <div class="rider-total">${tier==='start'?'—':fmt(r.total)+' km'}</div>
-        <div class="rider-status">${statusLine}</div>
-        <div class="bar-track"><div class="bar-fill fill-${tier}" style="width:${pct}%"></div></div>
-        <div class="bar-pct">${tier==='start'?'0%':pct+'% of Raja'}</div>
+        <div class="rider-right-text">
+          <div class="rider-status">${statusLine}</div>
+          <div class="bar-track"><div class="bar-fill fill-${tier}" style="width:${pct}%"></div></div>
+          <div class="bar-pct">${tier==='start'?'0%':pct+'% of Raja'}</div>
+        </div>
       </div>
     </div>`;
   }).join('');
