@@ -75,7 +75,7 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--slate-50);margin:0;co
   overflow:hidden;white-space:nowrap;
 }
 @keyframes scrollBg{0%{background-position:0% 50%}100%{background-position:100% 50%}}
-.alert-inner{display:inline-block;animation:marquee 22s linear infinite;padding-left:100%}
+.alert-inner{display:inline-block;animation:marquee 55s linear infinite;padding-left:100%}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
 .alert-strip span{margin:0 18px}
 
@@ -317,17 +317,35 @@ footer{text-align:center;color:var(--muted);font-size:11.5px;padding:10px 0 28px
 <!-- FINAL ALERT -->
 <div class="alert-strip">
   <div class="alert-inner">
-    <span>🔥 FINAL 3 DAYS REMAINING</span>
+    <span>🏁 FINAL 2 DAYS</span>
     <span>·</span>
-    <span>⚡ Philip Kuruvilla needs just 0.2 km!</span>
+    <span>🔥 Noby Thomas: 1,997.9 km — nearly 5× the challenge target. Absolute legend.</span>
     <span>·</span>
-    <span>💥 Every single kilometre matters now</span>
+    <span>⚡ Philip Kuruvilla: 359.8 km — needs just 0.2 km. That's one lap around the block!</span>
     <span>·</span>
-    <span>🏁 RIDE LIKE THERE'S NO TOMORROW</span>
+    <span>💨 Sebin Vettukattil: 24.9 km to go — one solid evening ride can do this!</span>
     <span>·</span>
-    <span>🔥 FINAL 3 DAYS REMAINING</span>
+    <span>🌧️ Varghese: started Week 1 with 0 km, then dropped 259 km in Week 3 alone. Beast mode.</span>
     <span>·</span>
-    <span>⚡ Philip Kuruvilla needs just 0.2 km!</span>
+    <span>😴 Sooraj Ravi: 859 km total but zero in Week 3 — wake up, the Raja crown is 141 km away!</span>
+    <span>·</span>
+    <span>📈 Kiran Kurian: 177.8 km in Week 3 alone — the strongest finish in the group!</span>
+    <span>·</span>
+    <span>🎯 Deepu Peter: 29.7 km from the 360 Club — two good morning rides and it's done.</span>
+    <span>·</span>
+    <span>👑 Jose Prasanth: 109 km from Monsoon Raja — can he find it in 2 days?</span>
+    <span>·</span>
+    <span>🚀 Sandeep Palakkaran: 0 km in Week 1, then exploded with 530 km — the comeback king!</span>
+    <span>·</span>
+    <span>⏳ 6 riders yet to log a single km — it's never too late to start. Go!</span>
+    <span>·</span>
+    <span>💪 Nitin Thomas: 160.6 km in Week 3 — best week yet. Keep that momentum for 2 more days!</span>
+    <span>·</span>
+    <span>🏁 FINAL 2 DAYS — RIDE LIKE THERE'S NO TOMORROW!</span>
+    <span>·</span>
+    <span>🔥 Noby Thomas: 1,997.9 km — nearly 5× the challenge target. Absolute legend.</span>
+    <span>·</span>
+    <span>⚡ Philip Kuruvilla: 359.8 km — needs just 0.2 km. That's one lap around the block!</span>
   </div>
 </div>
 
@@ -466,7 +484,7 @@ document.getElementById('gpCard').innerHTML = `
 const first = [...rajaMembers].sort((a,b)=>b.total-a.total)[0];
 const closest = brinkTop[0];
 document.getElementById('bannerInner').innerHTML = `
-  <div class="banner-item"><div class="banner-ic">🏆</div><div><h4>${clubMembers.length} riders in the 360 Club!</h4><p>3 days left — who joins next?</p></div></div>
+  <div class="banner-item"><div class="banner-ic">🏆</div><div><h4>${clubMembers.length} riders in the 360 Club!</h4><p>2 days left — who joins next?</p></div></div>
   ${first?`<div class="banner-item"><div class="banner-ic">👑</div><div><h4>${first.name} — Monsoon Raja! 🎉</h4><p>${fmt(first.total)} km — absolutely legendary</p></div></div>`:''}
   <div class="banner-item"><div class="banner-ic">⚡</div><div><h4>Philip Kuruvilla: 0.2 km away!</h4><p>That's literally a lap around the block 🔥</p></div></div>
   <div class="banner-item"><div class="banner-ic">🚴</div><div><h4>3 days. Every km counts. Go!</h4><p>The clock never stops — neither should you.</p></div></div>`;
@@ -540,7 +558,7 @@ function renderList(){
       const rajaClose = r.toRaja<200?`<span class="badge raja-close">👑 ${fmt(r.toRaja)} km to Raja!</span>`:'';
       badgesHtml=`<span class="badge club">🏆 360 Club</span>${new360Set.has(r.name)?'<span class="badge new360">🆕 Joined this week!</span>':''}${rajaClose}`;
     } else if(tier==='start'){
-      statusLine='Yet to start — 3 days left!';
+      statusLine='Yet to start — 2 days left!';
       badgesHtml=`<span class="yet-pill">⏳ Not started</span>`;
     } else {
       statusLine=`${fmt(r.to360)} km to 360 Club`;
